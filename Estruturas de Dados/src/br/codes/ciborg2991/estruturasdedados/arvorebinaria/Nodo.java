@@ -1,4 +1,4 @@
-package br.codes.clebermacieski.estruturasdedados.arvorebinaria;
+package br.codes.ciborg2991.estruturasdedados.arvorebinaria;
 
 public class Nodo {
 	private Nodo esquerdo;

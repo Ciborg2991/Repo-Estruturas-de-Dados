@@ -1,6 +1,6 @@
-package br.codes.clebermacieski.estruturasdedados;
+package br.codes.ciborg2991.estruturasdedados;
 
-import br.codes.clebermacieski.estruturasdedados.principal.InterfaceTextualController;
+import br.codes.ciborg2991.estruturasdedados.principal.InterfaceTextualController;
 
 public class Main {
 

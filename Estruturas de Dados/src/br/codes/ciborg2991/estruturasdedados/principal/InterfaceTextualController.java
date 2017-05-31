@@ -1,11 +1,11 @@
-package br.codes.clebermacieski.estruturasdedados.principal;
+package br.codes.ciborg2991.estruturasdedados.principal;
 
-import br.codes.clebermacieski.estruturasdedados.arvorebinaria.ArvoreBinController;
-import br.codes.clebermacieski.estruturasdedados.fila.FilaController;
-import br.codes.clebermacieski.estruturasdedados.listacircular.ITLstaCircular;
-import br.codes.clebermacieski.estruturasdedados.listadupencadeada.ITListaDupEncController;
-import br.codes.clebermacieski.estruturasdedados.listasimplesncadeada.ITListaSimpleEncadeadaController;
-import br.codes.clebermacieski.estruturasdedados.pilha.PilhaController;
+import br.codes.ciborg2991.estruturasdedados.arvorebinaria.ArvoreBinController;
+import br.codes.ciborg2991.estruturasdedados.fila.FilaController;
+import br.codes.ciborg2991.estruturasdedados.listacircular.ITLstaCircular;
+import br.codes.ciborg2991.estruturasdedados.listadupencadeada.ITListaDupEncController;
+import br.codes.ciborg2991.estruturasdedados.listasimplesncadeada.ITListaSimpleEncadeadaController;
+import br.codes.ciborg2991.estruturasdedados.pilha.PilhaController;
 
 public class InterfaceTextualController {
 	private GUIInterfaceTextual interGUI;

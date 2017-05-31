@@ -1,4 +1,4 @@
-package br.codes.clebermacieski.estruturasdedados.listacircular;
+package br.codes.ciborg2991.estruturasdedados.listacircular;
 
 public class ITLstaCircular {
 

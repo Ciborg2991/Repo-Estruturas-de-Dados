@@ -1,4 +1,4 @@
-package br.codes.clebermacieski.estruturasdedados.principal;
+package br.codes.ciborg2991.estruturasdedados.principal;
 
 import java.io.BufferedReader;
 import java.io.IOException;

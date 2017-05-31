@@ -1,4 +1,4 @@
-package br.codes.clebermacieski.estruturasdedados.listadupencadeada;
+package br.codes.ciborg2991.estruturasdedados.listadupencadeada;
 
 public class ITListaDupEncController {
 
