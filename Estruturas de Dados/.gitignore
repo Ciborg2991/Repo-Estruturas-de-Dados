@@ -1,5 +1,8 @@
-/build/
+/build/**
 /dist/
 
-/.classpath
-/.project
+**
+/bin/**
+.classpath
+
+.project
