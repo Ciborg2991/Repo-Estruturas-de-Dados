@@ -15,7 +15,7 @@
 	<property name="src.dir" value="src"/>
 	<property name="build.dir" value="build"/>
 	<property name="dist.dir" value="dist"/>
-	<property name="main-class" value="br.codes.clebermacieski.Main"/>
+	<property name="main-class" value="br.codes.clebermacieski.estruturasdedados.Main"/>
 
 <!-- Propriedade utilizada para referenciar o diretório na pasta do projeto que teria bibliotecas externas
 	<property name="lib.dir" value="lib"/>
@@ -32,7 +32,7 @@
 	</target>
 
 	<target name="init">
-		<tstamp/>
+		<tstamp/> <!-- Usar ${DSTAMP} para agregar AAAAMMDD a algum arquivo criado -->
 		<mkdir dir="${build.dir}"/>
 	</target>
 	
@@ -43,7 +43,7 @@
     <target name="dist" depends="compile" description="Aplicação que utiliza implementaçoes de estruturas de dados diversas.">
         <mkdir dir="${dist.dir}"/>
     	
-    	<jar destfile="${dist.dir}/${ant.project.name}-${DSTAMP}.jar" basedir="${build.dir}">
+    	<jar destfile="${dist.dir}/${ant.project.name}.jar" basedir="${build.dir}">
     		<manifest>
     			<attribute name="Main-Class" value="${main-class}"/>
     		</manifest>
