@@ -1,0 +1,1 @@
+java -jar "dist/Estruturas de Dados-20170526.jar"
