@@ -25,11 +25,11 @@ public class ArvoreBinController {
 		do{
 			switch (this.guiArvBin.exibirOpcoes()){
 			case 1:
-				this.arvoreBinaria.exibir();
+				this.exibir();
 				break;
 			case 2:
 				try{
-				this.arvoreBinaria.inserir(this.guiArvBin.pedirElemento());
+					this.arvoreBinaria.inserir(this.guiArvBin.pedirElemento());
 				}
 				catch (InputMismatchException e){
 					System.out.println("Elemento digitado do tipo errado");
@@ -50,5 +50,21 @@ public class ArvoreBinController {
 			}
 
 		} while (flag != 1);
+	}
+
+	private void exibir() {
+		switch (this.guiArvBin.pedirTipodeExibicao()) {
+		case 1:
+			this.arvoreBinaria.exibirPreOrdem();
+			break;
+		case 2:
+			this.arvoreBinaria.exibirEmOrdem();
+			break;
+		case 3:
+			this.arvoreBinaria.exibirPosOrdem();
+			break;
+		default:
+			break;
+		}
 	}
 }

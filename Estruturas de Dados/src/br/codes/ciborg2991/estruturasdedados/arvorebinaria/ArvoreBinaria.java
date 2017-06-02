@@ -7,12 +7,11 @@ public class ArvoreBinaria {
 		this.raiz = new Nodo(raiz);
 	}
 
-	public void exibir() {
+	public void exibirPreOrdem() {
 		this.exibirRecursivamente(this.raiz);
 	}
 
 	private void exibirRecursivamente(Nodo percorrendo) {
-
 		System.out.println("Nodo: " + percorrendo.getConteudo());
 
 		if ( percorrendo.getEsquerdo() != null){
@@ -23,8 +22,36 @@ public class ArvoreBinaria {
 		}
 	}
 
-	public void inserir(int elemento) {
+	public void exibirEmOrdem() {
+		this.exibirEmOrdemRecursivamente(this.raiz);
+	}
 
+	private void exibirEmOrdemRecursivamente(Nodo percorrendo) {
+		if(percorrendo.getEsquerdo() != null){
+			this.exibirEmOrdemRecursivamente(percorrendo.getEsquerdo());
+		}
+		System.out.println(percorrendo.getConteudo());
+		if (percorrendo.getDireito() != null) {
+			this.exibirEmOrdemRecursivamente(percorrendo.getDireito());
+		}
+	}
+
+	public void exibirPosOrdem() {
+		this.exibirPosOrdemRecursivamente(this.raiz);
+	}
+
+	private void exibirPosOrdemRecursivamente(Nodo percorrendo) {
+		if (percorrendo.getEsquerdo() != null) {
+			this.exibirPosOrdemRecursivamente(percorrendo.getEsquerdo());
+		}
+		if (percorrendo.getDireito() != null) {
+			this.exibirPosOrdemRecursivamente(percorrendo.getDireito());
+		}
+		System.out.println(percorrendo.getConteudo());
+	}
+
+	public void inserir(int elemento) {
+	
 		try{
 			this.inserirRecursivamente(elemento, this.raiz);
 		}
@@ -33,7 +60,7 @@ public class ArvoreBinaria {
 		}
 		/*Nodo percorrendo = this.raiz;
 		}
-
+	
 		if (elemento == percorrendo.getConteudo()){
 			new IllegalArgumentException("Elemento ja existente! Exceção: ");
 		}
@@ -49,10 +76,10 @@ public class ArvoreBinaria {
 			else{
 				if (elemento > percorrendo.getConteudo()){
 					if (percorrendo.getDireito() == null){
-
+	
 					}
 				}
-
+	
 			}
 		}*/
 	}

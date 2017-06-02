@@ -29,4 +29,12 @@ public class GUIArvoreBin {
 		System.out.println("Digite o elemento a inserir na árvore: ");
 		return this.teclado.nextInt();
 	}
+
+	public int pedirTipodeExibicao() {
+		System.out.println("Digite a opções de exibição desejada:"
+				+ "1 - Pré-Ordem"
+				+ "2 - Em-Ordem"
+				+ "3 - Pós-Ordem");
+		return this.teclado.nextInt();
+	}
 }
