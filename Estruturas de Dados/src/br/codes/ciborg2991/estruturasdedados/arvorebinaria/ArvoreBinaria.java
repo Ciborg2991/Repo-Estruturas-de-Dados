@@ -30,7 +30,7 @@ public class ArvoreBinaria {
 		if(percorrendo.getEsquerdo() != null){
 			this.exibirEmOrdemRecursivamente(percorrendo.getEsquerdo());
 		}
-		System.out.println(percorrendo.getConteudo());
+		System.out.println("Nodo: " + percorrendo.getConteudo());
 		if (percorrendo.getDireito() != null) {
 			this.exibirEmOrdemRecursivamente(percorrendo.getDireito());
 		}
@@ -47,7 +47,7 @@ public class ArvoreBinaria {
 		if (percorrendo.getDireito() != null) {
 			this.exibirPosOrdemRecursivamente(percorrendo.getDireito());
 		}
-		System.out.println(percorrendo.getConteudo());
+		System.out.println("Nodo: " + percorrendo.getConteudo());
 	}
 
 	public void inserir(int elemento) {

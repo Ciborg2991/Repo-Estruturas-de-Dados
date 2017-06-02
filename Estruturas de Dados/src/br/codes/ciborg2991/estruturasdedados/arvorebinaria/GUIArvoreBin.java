@@ -31,9 +31,9 @@ public class GUIArvoreBin {
 	}
 
 	public int pedirTipodeExibicao() {
-		System.out.println("Digite a opções de exibição desejada:"
-				+ "1 - Pré-Ordem"
-				+ "2 - Em-Ordem"
+		System.out.println("Digite a opções de exibição desejada:\n"
+				+ "1 - Pré-Ordem\n"
+				+ "2 - Em-Ordem\n"
 				+ "3 - Pós-Ordem");
 		return this.teclado.nextInt();
 	}
