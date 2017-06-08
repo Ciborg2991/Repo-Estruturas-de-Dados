@@ -51,7 +51,7 @@ public class ArvoreBinaria {
 	}
 
 	public void inserir(int elemento) {
-	
+
 		try{
 			this.inserirRecursivamente(elemento, this.raiz);
 		}
@@ -60,7 +60,7 @@ public class ArvoreBinaria {
 		}
 		/*Nodo percorrendo = this.raiz;
 		}
-	
+
 		if (elemento == percorrendo.getConteudo()){
 			new IllegalArgumentException("Elemento ja existente! Exceção: ");
 		}
@@ -76,10 +76,10 @@ public class ArvoreBinaria {
 			else{
 				if (elemento > percorrendo.getConteudo()){
 					if (percorrendo.getDireito() == null){
-	
+
 					}
 				}
-	
+
 			}
 		}*/
 	}
@@ -102,11 +102,66 @@ public class ArvoreBinaria {
 					if (percorrendo.getDireito() == null){
 						percorrendo.setDireito(new Nodo(elemento));
 					}
-				}
-				else{
-					this.inserirRecursivamente(elemento, percorrendo.getDireito());
+					else{
+						this.inserirRecursivamente(elemento, percorrendo.getDireito());
+					}
 				}
 			}
 		}
+	}
+	public void balancear() {
+		if (!this.ehBalanceada()){
+			System.out.println(this.ehBalanceada());
+			this.balacearRecursivamente(this.raiz);
+		}
+		else{
+			System.out.println(this.ehBalanceada());
+		}
+	}
+
+	private void balacearRecursivamente(Nodo percorrendo) {
+//		percorre recursivamende esquerda
+//		direita
+//		verifica balanceamaento da subarvore
+//		se  mesmo sentido, simples de acordo com sinal
+//		senão, dupla, de acordo tb
+		
+		
+	}
+
+	private boolean ehBalanceada() {
+		if (!ehVazia()){
+			if ((this.alturaSubEsquerda(this.raiz) - this.alturaSubDireita(this.raiz)) >= -1 
+					&& (this.alturaSubEsquerda(this.raiz) - this.alturaSubDireita(this.raiz)) <=1 ) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	private int alturaSubDireita(Nodo percorrendo) {
+		int contAltura=1;
+		if (percorrendo.getDireito() != null){
+			contAltura += this.alturaSubDireita(percorrendo.getDireito());
+		}
+		else {
+			return 0;
+		}
+		return contAltura;
+	}
+
+	private int alturaSubEsquerda(Nodo percorrendo) {
+		int contAltura=1;
+		if (percorrendo.getEsquerdo() != null) {
+			contAltura += this.alturaSubEsquerda(percorrendo.getEsquerdo());
+		}
+		else {
+			return 0;
+		}
+		return contAltura;
+	}
+
+	private boolean ehVazia() {
+		return this.raiz == null;
 	}
 }

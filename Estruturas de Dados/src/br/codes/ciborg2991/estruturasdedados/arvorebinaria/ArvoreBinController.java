@@ -36,10 +36,14 @@ public class ArvoreBinController {
 				}
 				break;
 			case 3:
-
+				//Pesquisa
 				break;
 			case 4:
-
+				//Balanceamento
+				this.arvoreBinaria.balancear();
+				break;
+			case 5:
+				//deleção
 				break;
 			case 0:
 				flag = 1;

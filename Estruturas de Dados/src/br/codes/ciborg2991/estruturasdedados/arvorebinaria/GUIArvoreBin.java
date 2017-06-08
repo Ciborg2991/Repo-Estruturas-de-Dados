@@ -20,7 +20,8 @@ public class GUIArvoreBin {
 				+ "1- Exibir árvore\n"
 				+ "2- Inserir na árvore\n"
 				+ "3- Pesquisar na árvore\n"
-				+ "4- Deletar elemento da árvore\n"
+				+ "4- Balancear árvore\n"
+				+ "5- Deletar elemento da árvore\n"
 				+ "0- Sair");
 		return this.teclado.nextInt();
 	}
