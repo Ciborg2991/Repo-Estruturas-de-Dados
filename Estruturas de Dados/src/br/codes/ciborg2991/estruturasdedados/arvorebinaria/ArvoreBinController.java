@@ -36,14 +36,16 @@ public class ArvoreBinController {
 				}
 				break;
 			case 3:
-				//Pesquisa
+				//Deleção
+				this.arvoreBinaria.excluir(this.guiArvBin.pedirElemento());
 				break;
 			case 4:
 				//Balanceamento
 				this.arvoreBinaria.balancear();
 				break;
 			case 5:
-				//deleção
+				//Pesquisa
+				this.arvoreBinaria.pesquisar(this.guiArvBin.pedirElemento());
 				break;
 			case 0:
 				flag = 1;
