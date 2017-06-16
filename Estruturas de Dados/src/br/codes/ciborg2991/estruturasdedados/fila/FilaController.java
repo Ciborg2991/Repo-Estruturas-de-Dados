@@ -6,12 +6,21 @@ public class FilaController {
 	
 	public FilaController() {
 		this.guiFila = new GUIFila();
-		
+		this.fila = new Fila(10); //create
 	}
 
 	public void verificarOpcao() {
-		// TODO Auto-generated method stub
-		
+		switch (this.guiFila.exibirOpcoes()) {
+		case 1:
+			//read
+			this.fila.exibirFila();
+			break;
+		case 2:
+			//update
+			break;
+		case 3:
+			//delete
+			break;
+		}
 	}
-
 }
