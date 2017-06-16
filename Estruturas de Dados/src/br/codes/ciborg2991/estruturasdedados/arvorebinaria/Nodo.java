@@ -5,8 +5,8 @@ public class Nodo {
 	private Nodo direito;
 	private int conteudo;
 
-	public Nodo(int raiz) {
-		this.conteudo = raiz;
+	public Nodo(int conteudo) {
+		this.conteudo = conteudo;
 	}
 
 	public Nodo getEsquerdo() {

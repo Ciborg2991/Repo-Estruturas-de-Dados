@@ -24,35 +24,32 @@ public class ArvoreBinController {
 
 		do{
 			switch (this.guiArvBin.exibirOpcoes()){
-			case 1:
-				this.exibir();
-				break;
-			case 2:
-				try{
-					this.arvoreBinaria.inserir(this.guiArvBin.pedirElemento());
-				}
-				catch (InputMismatchException e){
-					System.out.println("Elemento digitado do tipo errado");
-				}
-				break;
-			case 3:
-				//Deleção
-				this.arvoreBinaria.excluir(this.guiArvBin.pedirElemento());
-				break;
-			case 4:
-				//Balanceamento
-				this.arvoreBinaria.balancear();
-				break;
-			case 5:
-				//Pesquisa
-				this.arvoreBinaria.pesquisar(this.guiArvBin.pedirElemento());
-				break;
-			case 0:
-				flag = 1;
-				break;
-			default:
-				System.out.println("Erro estranho");
-				break;
+				case 1:
+					this.exibir();
+					break;
+				case 2:
+					this.arvoreBinaria.pesquisar(this.guiArvBin.pedirElemento());
+					break;
+				case 3:
+					try{
+						this.arvoreBinaria.inserir(this.guiArvBin.pedirElemento());
+					}
+					catch (InputMismatchException e){
+						System.out.println("Elemento digitado do tipo errado");
+					}
+					break;
+				case 4:
+					this.arvoreBinaria.balancear();
+					break;
+				case 5:
+					this.arvoreBinaria.excluir(this.guiArvBin.pedirElemento());
+					break;
+				case 0:
+					flag = 1;
+					break;
+				default:
+					System.out.println("Opção não disponível.");
+					break;
 			}
 
 		} while (flag != 1);

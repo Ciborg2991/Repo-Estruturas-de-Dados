@@ -18,8 +18,8 @@ public class GUIArvoreBin {
 	public int exibirOpcoes() {
 		System.out.println("Digite a opção desejada:\n"
 				+ "1- Exibir árvore\n"
-				+ "2- Inserir na árvore\n"
-				+ "3- Pesquisar na árvore\n"
+				+ "2- Pesquisar na árvore\n"
+				+ "3- Inserir na árvore\n"
 				+ "4- Balancear árvore\n"
 				+ "5- Deletar elemento da árvore\n"
 				+ "0- Sair");
@@ -27,7 +27,7 @@ public class GUIArvoreBin {
 	}
 
 	public int pedirElemento() {
-		System.out.println("Digite o elemento a inserir na árvore: ");
+		System.out.println("Digite o elemento: ");
 		return this.teclado.nextInt();
 	}
 
