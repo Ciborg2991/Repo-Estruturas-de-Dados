@@ -4,7 +4,7 @@ public class ArvoreBinaria {
 	private Nodo raiz;
 
 	private enum TiposExclusao {
-		FOLHA,DOIS_FILHOS, UNICO_FILHO_A_ESQUERDA, UNICO_FILHO_A_DIREITA, OK
+		FOLHA,DOIS_FILHOS, UNICO_FILHO_A_ESQUERDA, UNICO_FILHO_A_DIREITA, OK, FIM_SUB_ARV;
 	}
 
 	public ArvoreBinaria(int raiz) {
@@ -147,131 +147,89 @@ public class ArvoreBinaria {
 	}
 
 	public void excluir(int elemento) {
-		this.excluirRecursivamente2(elemento, this.raiz);
-		/*try {
-			this.excluirRecursivamente(elemento, this.raiz);
-			this.excluirRecursivamente(elemento, this.raiz);
-		}
-		catch (IllegalArgumentException e) {
-			System.out.println(e.getMessage());
-		}*/
+		if (this.excluirRecursivamente(elemento, this.raiz) == TiposExclusao.FOLHA) {
+			this.raiz = null;
+		};
 	}
 
-	private TiposExclusao excluirRecursivamente(int elemento, Nodo percorrendo) {
-		//achou?
-		if (elemento == percorrendo.getConteudo()){
-			//é folha?
-			if ( percorrendo.getEsquerdo() == null && percorrendo.getDireito() == null){
+	public TiposExclusao excluirRecursivamente (int elemento, Nodo percorrendo) {
+		if ( percorrendo.getConteudo() == elemento) {
+			if (this.ehFolha(percorrendo)){
 				return TiposExclusao.FOLHA;
 			}
-			else {
-				//um filho
-				if (percorrendo.getEsquerdo() != null ^ percorrendo.getDireito() != null){
-					if (percorrendo.getEsquerdo() != null) {
-						return TiposExclusao.UNICO_FILHO_A_ESQUERDA;
+			if (this.sohUmFilho(percorrendo)) {
+				if (percorrendo.getEsquerdo() != null){
+					Nodo filho = percorrendo.getEsquerdo();
+					percorrendo.setConteudo(filho.getConteudo());
+					percorrendo.setEsquerdo(filho.getEsquerdo());
+					percorrendo.setDireito(filho.getDireito());
+				}
+				else{
+					Nodo filho = percorrendo.getDireito();
+					percorrendo.setConteudo(filho.getConteudo());
+					percorrendo.setEsquerdo(filho.getEsquerdo());
+					percorrendo.setDireito(filho.getDireito());
+				}
+				return TiposExclusao.OK;
+			}
+			if (this.doisFilhos(percorrendo)){
+				if (percorrendo.getEsquerdo().getDireito() == null){
+					percorrendo.getEsquerdo().setDireito(percorrendo.getDireito());
+					percorrendo.setConteudo(percorrendo.getEsquerdo().getConteudo());
+					if (percorrendo.getEsquerdo().getEsquerdo() != null) {
+						percorrendo.setEsquerdo(percorrendo.getEsquerdo().getEsquerdo());
 					}
 					else {
-						return TiposExclusao.UNICO_FILHO_A_DIREITA;
+						percorrendo.setEsquerdo(null);
 					}
 				}
-				else {
-					//dois filhos
-					if (percorrendo.getEsquerdo() != null && percorrendo.getDireito() != null){
-						return TiposExclusao.DOIS_FILHOS;
+				else{
+					Nodo antecessor = this.encontrarMaisADireitaRecursivamente(percorrendo.getEsquerdo());
+					int aux = percorrendo.getConteudo();
+					percorrendo.setConteudo(antecessor.getConteudo());
+					antecessor.setConteudo(aux);
+	
+					if (antecessor.getEsquerdo() != null){
+						antecessor.setConteudo(antecessor.getEsquerdo().getConteudo());
+						if (antecessor.getEsquerdo() != null) {
+							antecessor.setEsquerdo(antecessor.getEsquerdo().getEsquerdo());
+						}
+						if (antecessor.getDireito() !=null) {
+							antecessor.setDireito(antecessor.getEsquerdo().getDireito());
+						}
 					}
 				}
+	
+			}
+			return TiposExclusao.OK;
+		}
+	
+		if (percorrendo.getEsquerdo() != null){
+			switch (this.excluirRecursivamente(elemento, percorrendo.getEsquerdo())) {
+			case FOLHA:
+				percorrendo.setEsquerdo(null);
+				break;
+			case OK:
+				//return TiposExclusao.OK;
+			default:
+				break;
+	
 			}
 		}
-		//percorre mais
-		if (elemento < percorrendo.getConteudo()){
-			if (percorrendo.getEsquerdo() == null){
-				throw new IllegalArgumentException("Elemento não encontrado");
-			}
-			else{
-				Nodo excluir = percorrendo.getEsquerdo();
-				switch (this.excluirRecursivamente(elemento, excluir)){
-				case FOLHA:
-					//Só exclui filho (referência)
-					percorrendo.setEsquerdo(null);
-					break;
-				case UNICO_FILHO_A_ESQUERDA:
-					//Filho se torna o pai
-					this.excluirComSohUmFilhoAEsquerda(percorrendo);
-					break;
-				case UNICO_FILHO_A_DIREITA:
-					this.excluirComSohUmFilhoADireita(percorrendo);
-					break;
-				case DOIS_FILHOS:
-					if (excluir.getEsquerdo().getDireito() == null) {
-						//sobe sub-arvore da esquerda
-						excluir.setConteudo(excluir.getEsquerdo().getConteudo());
-						excluir.setEsquerdo(excluir.getEsquerdo().getEsquerdo());
-					}
-					else{
-						//Substituindo por mais a direita da sub-arvore a esquerda
-						Nodo maisADireita = this.encontrarMaisADireitaRecursivamente(excluir.getEsquerdo());
-
-						int aux = excluir.getConteudo();
-						excluir.setConteudo(maisADireita.getConteudo());
-						maisADireita.setConteudo(aux);
-					}
-					break;
-				default:
-					break;
-				}
+	
+		if (percorrendo.getDireito() != null) {
+			switch (this.excluirRecursivamente(elemento , percorrendo.getDireito())) {
+			case FOLHA: 
+				percorrendo.setDireito(null);
+				break;
+			case OK:
+				//return TiposExclusao.OK;
+			default:
+				break;
+	
 			}
 		}
-		if (elemento > percorrendo.getConteudo()){
-			if (percorrendo.getDireito() == null){
-				throw new IllegalArgumentException("Elemento não encontrado");
-			}
-			else{
-				Nodo excluir = percorrendo.getDireito();
-				switch (this.excluirRecursivamente(elemento, excluir)){
-				case FOLHA:
-					//Só exclui filho (referência)
-					percorrendo.setDireito(null);
-					break;
-				case UNICO_FILHO_A_ESQUERDA:
-					//Filho se torna o pai
-					this.excluirComSohUmFilhoAEsquerda(percorrendo);
-					break;
-				case UNICO_FILHO_A_DIREITA:
-					this.excluirComSohUmFilhoADireita(percorrendo);
-					break;
-				case DOIS_FILHOS:
-					if (excluir.getEsquerdo().getDireito() == null) {
-						//sobe sub-arvore da esquerda
-						excluir.setConteudo(excluir.getEsquerdo().getConteudo());
-						excluir.setEsquerdo(excluir.getEsquerdo().getEsquerdo());
-					}
-					else{
-						//Substituindo por mais a direita da sub-arvore a esquerda
-						Nodo maisADireita = this.encontrarMaisADireitaRecursivamente(excluir.getEsquerdo());
-
-						int aux = excluir.getConteudo();
-						excluir.setConteudo(maisADireita.getConteudo());
-						maisADireita.setConteudo(aux);
-					}
-					break;
-				default:
-					break;
-				}
-			}
-		}
-		return null;
-	}
-
-	private void excluirComSohUmFilhoADireita(Nodo percorrendo) {
-		percorrendo.setConteudo(percorrendo.getDireito().getConteudo());
-		if (percorrendo.getDireito() != null) {percorrendo.setEsquerdo(percorrendo.getDireito().getEsquerdo());}
-		if (percorrendo.getDireito() != null) {percorrendo.setDireito(percorrendo.getDireito().getDireito());}
-	}
-
-	private void excluirComSohUmFilhoAEsquerda(Nodo percorrendo) {
-		percorrendo.setConteudo(percorrendo.getEsquerdo().getConteudo());
-		if (percorrendo.getEsquerdo() != null) {percorrendo.setEsquerdo(percorrendo.getEsquerdo().getEsquerdo());}
-		if (percorrendo.getEsquerdo() != null) {percorrendo.setDireito(percorrendo.getEsquerdo().getDireito());}
+		return TiposExclusao.OK;
 	}
 
 	private Nodo encontrarMaisADireitaRecursivamente(Nodo percorrendo) {
@@ -300,73 +258,6 @@ public class ArvoreBinaria {
 		}
 		if ( percorrendo.getDireito() != null){
 			this.pesquisarRecursivamente(elemento, percorrendo.getDireito());
-		}
-		return null;
-	}
-
-	public TiposExclusao excluirRecursivamente2 (int elemento, Nodo percorrendo) {
-		if ( percorrendo.getConteudo() == elemento) {
-			if (this.ehFolha(percorrendo)){
-				return TiposExclusao.FOLHA;
-			}
-			if (this.sohUmFilho(percorrendo)) {
-				if (percorrendo.getEsquerdo() != null){
-					percorrendo = percorrendo.getEsquerdo();
-				}
-				else{
-					percorrendo = percorrendo.getDireito();
-				}
-				return TiposExclusao.OK;
-			}
-			if (this.doisFilhos(percorrendo)){
-				if (percorrendo.getEsquerdo().getDireito() == null){
-					percorrendo.getEsquerdo().setDireito(percorrendo.getDireito());
-					percorrendo.setConteudo(percorrendo.getEsquerdo().getConteudo());
-					if (percorrendo.getEsquerdo().getEsquerdo() != null) {
-						percorrendo.setEsquerdo(percorrendo.getEsquerdo().getEsquerdo());
-					}
-					else {
-						percorrendo.setEsquerdo(null);
-					}
-				}
-				else{
-					Nodo antecessor = this.encontrarMaisADireitaRecursivamente(percorrendo.getEsquerdo());
-					int aux = percorrendo.getConteudo();
-					percorrendo.setConteudo(antecessor.getConteudo());
-					antecessor.setConteudo(aux);
-
-					if (antecessor.getEsquerdo() != null){
-						antecessor = antecessor.getEsquerdo();
-						//se não, exclui de novo
-					}
-				}
-
-			}
-			return TiposExclusao.OK;
-		}
-		if (percorrendo.getEsquerdo() != null){
-			switch (this.excluirRecursivamente2(elemento, percorrendo.getEsquerdo())) {
-			case FOLHA:
-				percorrendo.setEsquerdo(null);
-				break;
-			case OK:
-				return TiposExclusao.OK;
-			default:
-				break;
-
-			}
-			if (percorrendo.getDireito() != null) {
-				switch (this.excluirRecursivamente2(elemento , percorrendo.getDireito())) {
-				case FOLHA: 
-					percorrendo.setDireito(null);
-					break;
-				case OK:
-					return TiposExclusao.OK;
-				default:
-					break;
-
-				}
-			}
 		}
 		return null;
 	}
