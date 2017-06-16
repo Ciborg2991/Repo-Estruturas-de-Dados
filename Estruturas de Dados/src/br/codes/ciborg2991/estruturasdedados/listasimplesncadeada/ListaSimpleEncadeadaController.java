@@ -1,10 +1,10 @@
 package br.codes.ciborg2991.estruturasdedados.listasimplesncadeada;
 
-public class ITListaSimpleEncadeadaController {
+public class ListaSimpleEncadeadaController {
 	private GUIListaSE guiSE;
 	private ListaSimplesmenteEncadeada listaSE;
 	
-	public ITListaSimpleEncadeadaController(){
+	public ListaSimpleEncadeadaController(){
 		this.guiSE = new GUIListaSE();
 		this.listaSE = new ListaSimplesmenteEncadeada();
 	}

@@ -2,9 +2,9 @@ package br.codes.ciborg2991.estruturasdedados.principal;
 
 import br.codes.ciborg2991.estruturasdedados.arvorebinaria.ArvoreBinController;
 import br.codes.ciborg2991.estruturasdedados.fila.FilaController;
-import br.codes.ciborg2991.estruturasdedados.listacircular.ITLstaCircular;
-import br.codes.ciborg2991.estruturasdedados.listadupencadeada.ITListaDupEncController;
-import br.codes.ciborg2991.estruturasdedados.listasimplesncadeada.ITListaSimpleEncadeadaController;
+import br.codes.ciborg2991.estruturasdedados.listacircular.ListaCircularController;
+import br.codes.ciborg2991.estruturasdedados.listadupencadeada.ListaDupEncController;
+import br.codes.ciborg2991.estruturasdedados.listasimplesncadeada.ListaSimpleEncadeadaController;
 import br.codes.ciborg2991.estruturasdedados.pilha.PilhaController;
 
 public class InterfaceTextualController {
@@ -32,18 +32,18 @@ public class InterfaceTextualController {
 				break;
 
 			case 3:
-				ITListaSimpleEncadeadaController lseController = new ITListaSimpleEncadeadaController();
+				ListaSimpleEncadeadaController lseController = new ListaSimpleEncadeadaController();
 				lseController.instanciar();
 				lseController.verificarOpcao();
 				break;
 
 			case 4:
-				ITListaDupEncController ldeController = new ITListaDupEncController();
+				ListaDupEncController ldeController = new ListaDupEncController();
 				ldeController.verificarOpcao();
 				break;
 
 			case 5:
-				ITLstaCircular lcircController = new ITLstaCircular();
+				ListaCircularController lcircController = new ListaCircularController();
 				lcircController.verificarOpcao();
 				break;
 				
