@@ -1,18 +1,18 @@
 package br.codes.ciborg2991.estruturasdedados.listasimplesncadeada;
 
 public class ListaSimplesmenteEncadeada {
-	private Nodo inicio;
+	private Nodo nodoInicial;
 
 	public ListaSimplesmenteEncadeada(){
-		this.inicio = null;
+		this.nodoInicial = null;
 	}
 
 	public void inserirNoInicio(String conteudo) {
 		if (this.ehVazia()){
-			this.inicio = new Nodo(conteudo, null);
+			this.nodoInicial = new Nodo(conteudo, null);
 		}
 		else{
-			this.inicio = new Nodo(conteudo, this.inicio);
+			this.nodoInicial = new Nodo(conteudo, this.nodoInicial);
 		}
 	}
 
@@ -22,7 +22,7 @@ public class ListaSimplesmenteEncadeada {
 			inserirNoInicio(conteudo);
 		}
 		else{ //Lista tem elementos, então busca o ultimo e insere depois
-			Nodo percorrendo= this.inicio;
+			Nodo percorrendo= this.nodoInicial;
 			while (this.temProximo(percorrendo)){
 				percorrendo = percorrendo.getProximo();
 			}
@@ -31,7 +31,7 @@ public class ListaSimplesmenteEncadeada {
 	}
 
 	protected void insereApos (String elemento, String novoConteudo){
-		Nodo percorrendo = this.inicio;
+		Nodo percorrendo = this.nodoInicial;
 
 		while (this.temProximo(percorrendo)){
 			if (percorrendo.getConteudo().equals(elemento)){
@@ -49,14 +49,14 @@ public class ListaSimplesmenteEncadeada {
 
 	public void inserirNaPos(int posicao, String conteudo) {
 		// Insere especificamente na posição, a parti de 0
-		Nodo percorrendo = this.inicio;
+		Nodo percorrendo = this.nodoInicial;
 		int cont = -1;
 
 		if (percorrendo != null){
 			cont++;
 			if (cont == posicao){
 				//insere aqui e será o inicio
-				this.inicio = new Nodo(conteudo, this.inicio.getProximo());
+				this.nodoInicial = new Nodo(conteudo, this.nodoInicial.getProximo());
 			}
 			else{
 				while (temProximo(percorrendo)){
@@ -72,12 +72,12 @@ public class ListaSimplesmenteEncadeada {
 
 	public boolean removerOInicio() {
 		// Remove o inicio e atualiza com o segundo, se existir
-		if (this.inicio != null){
-			if (this.inicio.getProximo() != null){
-				this.inicio = this.inicio.getProximo();
+		if (this.nodoInicial != null){
+			if (this.nodoInicial.getProximo() != null){
+				this.nodoInicial = this.nodoInicial.getProximo();
 			}
 			else{
-				this.inicio = null;
+				this.nodoInicial = null;
 			}
 			return true;
 		}
@@ -88,7 +88,7 @@ public class ListaSimplesmenteEncadeada {
 
 	public boolean removerOFim() {
 		// Nula o fim da lista
-		Nodo percorrer = this.inicio;
+		Nodo percorrer = this.nodoInicial;
 		if (percorrer != null){
 			while (this.temProximo(percorrer)){
 				percorrer = percorrer.getProximo();
@@ -100,19 +100,19 @@ public class ListaSimplesmenteEncadeada {
 	}
 
 	public void exibir() {
-		Nodo percorrer = this.inicio;
+		Nodo percorrer = this.nodoInicial;
 
 		if(!this.ehVazia()){
-			while (percorrer.getProximo() != null){
+			do {
 				System.out.println(percorrer.getConteudo());
 				percorrer = percorrer.getProximo();
 			}
+			while (percorrer != null);
 		}
 	}
 
 	private boolean ehVazia() {
-		// Verifica se o inicio é nulo
-		return this.inicio == null;
+		return this.nodoInicial == null;
 	}
 
 	private boolean temProximo(Nodo nodo){
@@ -120,7 +120,7 @@ public class ListaSimplesmenteEncadeada {
 	}
 
 	public int pesquisar(String elemento) {
-		Nodo percorrendo = this.inicio;
+		Nodo percorrendo = this.nodoInicial;
 		int cont = 0;
 		while (this.temProximo(percorrendo)){
 			cont++;
@@ -132,7 +132,7 @@ public class ListaSimplesmenteEncadeada {
 	}
 
 	public int remover(String elemento) {
-		Nodo percorrendo = this.inicio;
+		Nodo percorrendo = this.nodoInicial;
 		
 		if (percorrendo.getConteudo().equals(elemento)){
 			return 1;

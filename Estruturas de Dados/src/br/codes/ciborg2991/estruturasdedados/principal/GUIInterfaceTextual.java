@@ -29,10 +29,10 @@ public class GUIInterfaceTextual {
 		System.out.println("=====Estruturas de Dados=====\n"
 				+"=====Escolha um tipo de estrutura para realizar operações:======\n"
 				+ "1 - Pilha\n"
-				+ "2 - Fila\n"
+				//+ "2 - Fila\n"
 				+ "3 - Lista Simplemente Encadeada\n"
-				+ "4 - Lista Duplamente Encadeada\n"
-				+ "5 - Lista Circular\n"
+				//+ "4 - Lista Duplamente Encadeada\n"
+				//+ "5 - Lista Circular\n"
 				+ "6 - Árvore Binária\n"
 				+ "0 - Sair"
 				);

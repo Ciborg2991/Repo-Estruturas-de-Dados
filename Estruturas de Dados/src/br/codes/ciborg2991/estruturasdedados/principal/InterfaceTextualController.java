@@ -56,7 +56,6 @@ public class InterfaceTextualController {
 				break;
 
 			default:
-				System.out.println("Erro estranho");
 				break;
 			}
 		}
