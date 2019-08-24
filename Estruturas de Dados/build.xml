@@ -15,7 +15,7 @@
 	<property name="src.dir" value="src"/>
 	<property name="build.dir" value="build"/>
 	<property name="dist.dir" value="dist"/>
-	<property name="main-class" value="br.codes.clebermacieski.estruturasdedados.Main"/>
+	<property name="main-class" value="br.codes.ciborg2991.estruturasdedados.Main"/>
 
 <!-- Propriedade utilizada para referenciar o diretório na pasta do projeto que teria bibliotecas externas
 	<property name="lib.dir" value="lib"/>
