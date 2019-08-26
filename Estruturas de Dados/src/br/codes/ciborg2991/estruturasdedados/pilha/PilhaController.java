@@ -36,10 +36,10 @@ public class PilhaController {
 
 			}
 			catch (NumberFormatException e){
-				System.out.println("Erro em conversão do tipo dado como opção! Tente novamente. Exceção: "+ e);
+				System.out.println("Erro em conversão do tipo dado como opção. Tente novamente.");
 			}
 			catch (IOException e){
-				System.out.println("Erro no tipo dado como opção! Tente novamente. Exceção: "+ e);
+				System.out.println("Erro no tipo dado como opção! Tente novamente.");
 			}
 			catch (IllegalArgumentException e) {
 				System.out.println(e.getMessage());
@@ -72,7 +72,7 @@ public class PilhaController {
 				flag=1;
 				break;
 			default:
-				System.out.println("Opção Inválida!");
+				System.out.println("Opção Inválida.");
 				break;
 			}
 		}while (flag != 1);
@@ -84,10 +84,10 @@ public class PilhaController {
 				return this.guiPilha.iniciarInterfaceTextual();
 			}
 			catch (IOException e){
-				System.out.println("Erro no tipo dado como opção! Tente novamente. Exceção: "+ e);
+				System.out.println("Erro no tipo dado como opção! Tente novamente.");
 			}
 			catch (NumberFormatException e){
-				System.out.println("Erro em conversão do tipo dado como opção! Tente novamente. Exceção: "+ e);
+				System.out.println("Erro em conversão do tipo dado como opção! Tente novamente.");
 			}
 		}
 		return -1;
@@ -102,13 +102,13 @@ public class PilhaController {
 				break;
 			}
 			catch (IOException e) {
-				System.out.println("Erro no tipo dado como opção! Tente novamente. Exceção: "+ e);
+				System.out.println("Erro no tipo dado como opção! Tente novamente.");
 			}
 			catch (NumberFormatException e){
-				System.out.println("Erro em conversão do tipo dado como opção! Tente novamente. Exceção: "+ e);
+				System.out.println("Erro em conversão do tipo dado como opção! Tente novamente.");
 			}
 			catch (ArrayIndexOutOfBoundsException e){
-				System.out.println("Pilha cheia!");
+				System.out.println("Pilha cheia.");
 				break;
 			}
 		}
@@ -119,7 +119,7 @@ public class PilhaController {
 		this.guiPilha.exibirTopo(this.pilha.top());
 		}
 		catch (ArrayIndexOutOfBoundsException e) {
-			System.out.println("Pilha sem elementos! Exceção: "+ e);
+			System.out.println("Pilha sem elementos.");
 		}
 	}
 
@@ -128,7 +128,7 @@ public class PilhaController {
 			this.guiPilha.exibirRetirado(this.pilha.pop());
 		} 
 		catch (ArrayIndexOutOfBoundsException e) {
-			System.out.println("Pilha vazia! Exceção: "+ e);
+			System.out.println("Pilha vazia.");
 		}
 	}
 

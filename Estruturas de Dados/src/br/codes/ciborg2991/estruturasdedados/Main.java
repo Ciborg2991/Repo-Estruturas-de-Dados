@@ -5,6 +5,7 @@ import br.codes.ciborg2991.estruturasdedados.principal.InterfaceTextualControlle
 public class Main {
 
 	public static void main(String[] args) {
+	    //TODO: Persisitir as estruturas.
 		InterfaceTextualController interfCont = new InterfaceTextualController();
 		interfCont.verificarOpcao();
 		System.exit(0);

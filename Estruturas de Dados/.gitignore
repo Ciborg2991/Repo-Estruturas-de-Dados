@@ -1,9 +1,13 @@
 build/
 dist/
-
 bin/
-
 .classpath
-
-
 .project
+/.idea/$PRODUCT_WORKSPACE_FILE$
+/.idea/.gitignore
+/.idea/ant.xml
+/.idea/encodings.xml
+/Estruturas de Dados.iml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/vcs.xml
