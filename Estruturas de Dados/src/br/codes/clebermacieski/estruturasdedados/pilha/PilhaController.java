@@ -39,7 +39,7 @@ public class PilhaController {
 				System.out.println("Erro em conversão do tipo dado como opção. Tente novamente.");
 			}
 			catch (IOException e){
-				System.out.println("Erro no tipo dado como opção! Tente novamente.");
+				System.out.println("Erro no tipo dado como opção. Tente novamente.");
 			}
 			catch (IllegalArgumentException e) {
 				System.out.println(e.getMessage());
@@ -72,7 +72,7 @@ public class PilhaController {
 				flag=1;
 				break;
 			default:
-				System.out.println("Opção Inválida.");
+				System.out.println("Opção inválida.");
 				break;
 			}
 		}while (flag != 1);
@@ -84,10 +84,10 @@ public class PilhaController {
 				return this.guiPilha.iniciarInterfaceTextual();
 			}
 			catch (IOException e){
-				System.out.println("Erro no tipo dado como opção! Tente novamente.");
+				System.out.println("Erro no tipo dado como opção. Tente novamente.");
 			}
 			catch (NumberFormatException e){
-				System.out.println("Erro em conversão do tipo dado como opção! Tente novamente.");
+				System.out.println("Erro em conversão do tipo dado como opção. Tente novamente.");
 			}
 		}
 		return -1;
@@ -102,10 +102,10 @@ public class PilhaController {
 				break;
 			}
 			catch (IOException e) {
-				System.out.println("Erro no tipo dado como opção! Tente novamente.");
+				System.out.println("Erro no tipo dado como opção. Tente novamente.");
 			}
 			catch (NumberFormatException e){
-				System.out.println("Erro em conversão do tipo dado como opção! Tente novamente.");
+				System.out.println("Erro em conversão do tipo dado como opção. Tente novamente.");
 			}
 			catch (ArrayIndexOutOfBoundsException e){
 				System.out.println("Pilha cheia.");

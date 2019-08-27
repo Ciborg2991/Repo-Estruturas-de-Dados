@@ -6,7 +6,7 @@ public class FilaController {
 	
 	public FilaController() {
 		this.guiFila = new GUIFila();
-		this.fila = new Fila(10); //create
+		this.fila = new Fila(10);
 	}
 
 	public void verificarOpcao() {
