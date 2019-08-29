@@ -5,12 +5,16 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class GUIInterfaceTextual {
+	private final InterfacePrincipalController controller;
 	private BufferedReader leitorAmortecido;
 	private static final int TENT_MAX = 3;
 	private int opcaodeEstrutura;
 
-	public GUIInterfaceTextual(){
+	public GUIInterfaceTextual(EstruturasDeDados estruturas, InterfacePrincipalController interfacePrincipalController){
+		this.controller = interfacePrincipalController;
 		this.leitorAmortecido= new BufferedReader(new InputStreamReader(System.in));
+		iniciar();
+		//TODO: mostrar estruturas de dados disponives
 	}
 
 	public void iniciar() {

@@ -7,11 +7,13 @@ import br.codes.clebermacieski.estruturasdedados.listadupencadeada.ListaDupEncCo
 import br.codes.clebermacieski.estruturasdedados.listasimplesncadeada.ListaSimpleEncadeadaController;
 import br.codes.clebermacieski.estruturasdedados.pilha.PilhaController;
 
-public class InterfaceTextualController {
+public class InterfacePrincipalController {
 	private GUIInterfaceTextual interGUI;
+    private EstruturasDeDados estruturas;
 
-	public InterfaceTextualController() {
-		this.interGUI = new GUIInterfaceTextual();
+	public InterfacePrincipalController(EstruturasDeDados estruturas) {
+		this.estruturas = estruturas;
+		interGUI = new GUIInterfaceTextual(estruturas, this);
 	}
 
 	public void verificarOpcao() {
