@@ -4,34 +4,41 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class GUIInterfaceTextual implements Apresentavel{
-    private final InterfacePrincipalController controller;
+/**
+ * Model concreto que mostra estruturas e açoes disponíveis no model.
+ * Ele compõe o padrão Observer sendo um observer da classe observable EstruturasDeDados.
+ *
+ * @author Cléber Macieski
+ */
+public class GUIInterfaceTextual extends ViewEstruturas{
     private BufferedReader leitorAmortecido;
-    private static final int TENT_MAX = 3;
-    private static final int ERRO = -1;
 
-	GUIInterfaceTextual(EstruturasDeDados estruturas, InterfacePrincipalController interfacePrincipalController){
-		this.controller = interfacePrincipalController;
+	GUIInterfaceTextual(EstruturasDeDados estruturas, ControllerEstruturasdeDados estrategia){
+		super(estruturas, estrategia);
 		this.leitorAmortecido= new BufferedReader(new InputStreamReader(System.in));
 		//TODO: mostrar estruturas de dados disponives de maneira dinamica
 	}
 
-	private int iniciar() {
-	    int opcao = ERRO;
-		for(int i=0; i < TENT_MAX; i++){
+	@Override
+	public void pedirOpcaodeEstrutura() {
+		this.controller.exibirInterfaceEspecifica(pegarOpcaoEstrutura());
+	}
+
+	private int pegarOpcaoEstrutura() {
+		int opcao = 0;
+		do{
 			try{
-				opcao = this.iniciarInterfaceTextual();
-				break;
+				this.mostraOpcoes();
+				opcao = Integer.parseInt(leitorAmortecido.readLine());
+				return opcao;
 			}
 			catch (IOException e) {
 				System.out.println("Erro no tipo dado como opção digitado, tente novamente! Exceção: "+ e);
 			}
-		}
-
-		return opcao;
+		} while (true);
 	}
 
-	private int iniciarInterfaceTextual() throws IOException{
+	private void mostraOpcoes() {
 		System.out.println("=====Estruturas de Dados=====\n"
 				+"=====Escolha um tipo de estrutura para realizar operações:======\n"
 				+ "1 - Pilha\n"
@@ -42,13 +49,6 @@ public class GUIInterfaceTextual implements Apresentavel{
 				+ "6 - Árvore Binária\n"
 				+ "0 - Sair"
 				);
-		
-		return Integer.parseInt(leitorAmortecido.readLine());
 	}
-
-    @Override
-    public void pedirOpcaodeEstrutura() {
-        this.controller.selecionarEstrutura(iniciar());
-    }
 
 }
