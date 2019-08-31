@@ -8,20 +8,20 @@ import br.codes.clebermacieski.estruturasdedados.listasimplesncadeada.ListaSimpl
 import br.codes.clebermacieski.estruturasdedados.pilha.PilhaController;
 
 public class InterfacePrincipalController {
-	private GUIInterfaceTextual interGUI;
+	private Apresentavel interGUI;
     private EstruturasDeDados estruturas;
 
 	public InterfacePrincipalController(EstruturasDeDados estruturas) {
 		this.estruturas = estruturas;
 		interGUI = new GUIInterfaceTextual(estruturas, this);
+		interGUI.pedirOpcaodeEstrutura();
 	}
 
-	public void verificarOpcao() {
+	void selecionarEstrutura(int opcaoDeEstrutura) {
 		int flag = 0;
 
 		do{
-			this.interGUI.iniciar();
-			switch (this.interGUI.getOpcaodeEstrutura()) {
+			switch (opcaoDeEstrutura) {
 			case 1:
 				PilhaController pilhaController = new PilhaController();
 				pilhaController.instanciar();

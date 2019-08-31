@@ -4,32 +4,34 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class GUIInterfaceTextual {
-	private final InterfacePrincipalController controller;
-	private BufferedReader leitorAmortecido;
-	private static final int TENT_MAX = 3;
-	private int opcaodeEstrutura;
+public class GUIInterfaceTextual implements Apresentavel{
+    private final InterfacePrincipalController controller;
+    private BufferedReader leitorAmortecido;
+    private static final int TENT_MAX = 3;
+    private static final int ERRO = -1;
 
-	public GUIInterfaceTextual(EstruturasDeDados estruturas, InterfacePrincipalController interfacePrincipalController){
+	GUIInterfaceTextual(EstruturasDeDados estruturas, InterfacePrincipalController interfacePrincipalController){
 		this.controller = interfacePrincipalController;
 		this.leitorAmortecido= new BufferedReader(new InputStreamReader(System.in));
-		iniciar();
-		//TODO: mostrar estruturas de dados disponives
+		//TODO: mostrar estruturas de dados disponives de maneira dinamica
 	}
 
-	public void iniciar() {
+	private int iniciar() {
+	    int opcao = ERRO;
 		for(int i=0; i < TENT_MAX; i++){
 			try{
-				this.iniciarInterfaceTextual();
+				opcao = this.iniciarInterfaceTextual();
 				break;
 			}
 			catch (IOException e) {
 				System.out.println("Erro no tipo dado como opção digitado, tente novamente! Exceção: "+ e);
 			}
 		}
+
+		return opcao;
 	}
 
-	public void iniciarInterfaceTextual() throws IOException{
+	private int iniciarInterfaceTextual() throws IOException{
 		System.out.println("=====Estruturas de Dados=====\n"
 				+"=====Escolha um tipo de estrutura para realizar operações:======\n"
 				+ "1 - Pilha\n"
@@ -41,10 +43,12 @@ public class GUIInterfaceTextual {
 				+ "0 - Sair"
 				);
 		
-		this.opcaodeEstrutura = Integer.parseInt(leitorAmortecido.readLine());
+		return Integer.parseInt(leitorAmortecido.readLine());
 	}
-	
-	public int getOpcaodeEstrutura() {
-		return opcaodeEstrutura;
-	}
+
+    @Override
+    public void pedirOpcaodeEstrutura() {
+        this.controller.selecionarEstrutura(iniciar());
+    }
+
 }

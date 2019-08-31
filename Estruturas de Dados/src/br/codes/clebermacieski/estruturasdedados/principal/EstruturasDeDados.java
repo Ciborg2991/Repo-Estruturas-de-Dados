@@ -1,7 +1,5 @@
 package br.codes.clebermacieski.estruturasdedados.principal;
 
-import java.util.ArrayList;
-
 public class EstruturasDeDados implements Observavel{
     private Observador observador;
 
@@ -14,5 +12,4 @@ public class EstruturasDeDados implements Observavel{
     public void notificar() {
             observador.atualizar();
         }
-    }
 }
