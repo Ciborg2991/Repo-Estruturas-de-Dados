@@ -9,14 +9,15 @@ import br.codes.clebermacieski.estruturasdedados.pilha.PilhaController;
 
 public class EstruturasdeDadosController implements ControllerEstruturasdeDados{
 	private ViewEstruturas interGUI;
-    private EstruturasDeDados estruturas;
+    private ColecaoEstruturaDeDados estruturas;
 
-	public EstruturasdeDadosController(EstruturasDeDados estruturas) {
+	public EstruturasdeDadosController(ColecaoEstruturaDeDados estruturas) {
 		this.estruturas = estruturas;
 		interGUI = new GUIInterfaceTextual(estruturas, this);
 		interGUI.pedirOpcaodeEstrutura();
 	}
 
+	//TODO: Avaliar estrutura da coleção
 	@Override
 	public void exibirInterfaceEspecifica(int interf) {
 		int flag = 0;

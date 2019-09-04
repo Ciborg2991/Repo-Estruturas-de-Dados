@@ -2,11 +2,11 @@ package br.codes.clebermacieski.estruturasdedados.principal;
 
 abstract class ViewEstruturas {
     ControllerEstruturasdeDados controller;
-    private EstruturasDeDados model;
+    ColecaoEstruturaDeDados estruturas;
 
-    ViewEstruturas(EstruturasDeDados estruturasDeDados, ControllerEstruturasdeDados estrategia) {
+    ViewEstruturas(ColecaoEstruturaDeDados estruturasDeDados, ControllerEstruturasdeDados estrategia) {
         this.controller = estrategia;
-        this.model = estruturasDeDados;
+        this.estruturas = estruturasDeDados;
     }
 
     abstract void pedirOpcaodeEstrutura();

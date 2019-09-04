@@ -13,10 +13,9 @@ import java.io.InputStreamReader;
 public class GUIInterfaceTextual extends ViewEstruturas{
     private BufferedReader leitorAmortecido;
 
-	GUIInterfaceTextual(EstruturasDeDados estruturas, ControllerEstruturasdeDados estrategia){
+	GUIInterfaceTextual(ColecaoEstruturaDeDados estruturas, ControllerEstruturasdeDados estrategia){
 		super(estruturas, estrategia);
 		this.leitorAmortecido= new BufferedReader(new InputStreamReader(System.in));
-		//TODO: mostrar estruturas de dados disponives de maneira dinamica
 	}
 
 	@Override
@@ -25,7 +24,7 @@ public class GUIInterfaceTextual extends ViewEstruturas{
 	}
 
 	private int pegarOpcaoEstrutura() {
-		int opcao = 0;
+		int opcao;
 		do{
 			try{
 				this.mostraOpcoes();
@@ -39,7 +38,13 @@ public class GUIInterfaceTextual extends ViewEstruturas{
 	}
 
 	private void mostraOpcoes() {
-		System.out.println("=====Estruturas de Dados=====\n"
+		System.out.println("=====Estruturas de Dados=====\n");
+		int i = 1;
+		Iterador iterador = super.estruturas.pegarIterador();
+		while (iterador.temProximo()){
+			System.out.println(i +" - "+ iterador.pegarProximo() );
+		}
+		/*
 				+"=====Escolha um tipo de estrutura para realizar operações:======\n"
 				+ "1 - Pilha\n"
 				+ "2 - Fila\n"
@@ -48,7 +53,7 @@ public class GUIInterfaceTextual extends ViewEstruturas{
 				+ "5 - Lista Circular\n"
 				+ "6 - Árvore Binária\n"
 				+ "0 - Sair"
-				);
+				);*/
 	}
 
 }
