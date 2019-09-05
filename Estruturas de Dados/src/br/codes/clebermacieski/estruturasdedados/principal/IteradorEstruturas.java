@@ -20,8 +20,8 @@ public class IteradorEstruturas implements Iterador {
     }
 
     @Override
-    public String pegarProximo() {
-        String elemento = colecao.estruturas.get(posicaoAtual);
+    public EstruturaDeDados pegarProximo() {
+        EstruturaDeDados elemento = colecao.estruturas.get(posicaoAtual);
         posicaoAtual++;
         return elemento;
     }

@@ -2,12 +2,20 @@ package br.codes.clebermacieski.estruturasdedados.principal;
 
 import java.util.ArrayList;
 
+/**
+ * Coleção de Estruturas de Dados implementadas.
+ * Utilizada essa coleção a fim de desacoplar a interface gráfica dos modelos que podem ser adicionados ao longo do tempo.
+ * Esta classe compõe o padrão Iterator
+ *
+ * @author Cléber Macieski
+ */
+
 public class ColecaoEstruturaDeDados implements Iteravel{
-    ArrayList<String> estruturas;
+    ArrayList<EstruturaDeDados> estruturas;
 
     public ColecaoEstruturaDeDados(){
-        estruturas = new ArrayList<String>();
-        estruturas.add("Pilha");
+        estruturas = new ArrayList<>();
+        estruturas.add(new Pilha());
     }
     @Override
     public Iterador pegarIterador() {

@@ -15,12 +15,12 @@ public class GUIInterfaceTextual extends ViewEstruturas{
 
 	GUIInterfaceTextual(ColecaoEstruturaDeDados estruturas, ControllerEstruturasdeDados estrategia){
 		super(estruturas, estrategia);
-		this.leitorAmortecido= new BufferedReader(new InputStreamReader(System.in));
+		leitorAmortecido= new BufferedReader(new InputStreamReader(System.in));
 	}
 
 	@Override
 	public void pedirOpcaodeEstrutura() {
-		this.controller.exibirInterfaceEspecifica(pegarOpcaoEstrutura());
+		controller.exibirInterfaceEspecifica(pegarOpcaoEstrutura());
 	}
 
 	private int pegarOpcaoEstrutura() {
@@ -29,21 +29,31 @@ public class GUIInterfaceTextual extends ViewEstruturas{
 			try{
 				this.mostraOpcoes();
 				opcao = Integer.parseInt(leitorAmortecido.readLine());
+				//TODO: vincular opção com ordem do iterator para usar a instancia do objeto correta no controller?
 				return opcao;
 			}
 			catch (IOException e) {
 				System.out.println("Erro no tipo dado como opção digitado, tente novamente! Exceção: "+ e);
 			}
+			catch (Exception e){
+				System.out.println(e.getMessage());
+			}
 		} while (true);
 	}
 
-	private void mostraOpcoes() {
+	private void mostraOpcoes() throws Exception {
 		System.out.println("=====Estruturas de Dados=====\n");
+		System.out.println("Selecione uma estrutura:\n");
 		int i = 1;
-		Iterador iterador = super.estruturas.pegarIterador();
-		while (iterador.temProximo()){
-			System.out.println(i +" - "+ iterador.pegarProximo() );
+		boolean tinhaElementos = false;
+
+		for (Iterador iterador = estruturas.pegarIterador(); iterador.temProximo(); ){
+			tinhaElementos = true;
+			System.out.println(i +" - "+ iterador.pegarProximo().toString() );
 		}
+
+		if (!tinhaElementos) throw new Exception("Não há estruturas disponíveis.");
+
 		/*
 				+"=====Escolha um tipo de estrutura para realizar operações:======\n"
 				+ "1 - Pilha\n"

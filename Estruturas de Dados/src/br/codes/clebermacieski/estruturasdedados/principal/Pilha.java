@@ -1,7 +1,7 @@
 package br.codes.clebermacieski.estruturasdedados.principal;
 
-public class Pilha {
-    private final int TAMANHO;
+public class Pilha extends EstruturaDeDados {
+    private int TAMANHO;
     private int [] vetor;
     private int indice;
 
@@ -9,6 +9,10 @@ public class Pilha {
         this.TAMANHO = tamanho;
         this.vetor= new int[this.TAMANHO];
         this.indice = 0;
+    }
+
+    public Pilha() {
+
     }
 
     public void push(int valor) throws ArrayIndexOutOfBoundsException{
@@ -48,4 +52,8 @@ public class Pilha {
         return TAMANHO;
     }
 
+    @Override
+    public String toString(){
+        return this.getClass().getSimpleName();
+    }
 }

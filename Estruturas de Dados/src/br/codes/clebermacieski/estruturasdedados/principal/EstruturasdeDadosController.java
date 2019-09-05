@@ -17,7 +17,6 @@ public class EstruturasdeDadosController implements ControllerEstruturasdeDados{
 		interGUI.pedirOpcaodeEstrutura();
 	}
 
-	//TODO: Avaliar estrutura da coleção
 	@Override
 	public void exibirInterfaceEspecifica(int interf) {
 		int flag = 0;
