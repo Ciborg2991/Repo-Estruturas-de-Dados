@@ -1,4 +1,4 @@
-package br.codes.clebermacieski.estruturasdedados.principal;
+package br.codes.clebermacieski.estruturasdedados.principal.model;
 
 public interface Iterador {
     boolean temProximo();

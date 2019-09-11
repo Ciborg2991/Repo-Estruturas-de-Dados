@@ -1,7 +1,7 @@
 package br.codes.clebermacieski.estruturasdedados;
 
-import br.codes.clebermacieski.estruturasdedados.principal.ColecaoEstruturaDeDados;
-import br.codes.clebermacieski.estruturasdedados.principal.EstruturasdeDadosController;
+import br.codes.clebermacieski.estruturasdedados.principal.model.ColecaoEstruturaDeDados;
+import br.codes.clebermacieski.estruturasdedados.principal.controller.EstruturasdeDadosController;
 
 public class Main {
 

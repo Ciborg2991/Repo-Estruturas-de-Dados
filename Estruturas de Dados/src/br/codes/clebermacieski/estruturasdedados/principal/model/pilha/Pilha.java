@@ -1,4 +1,6 @@
-package br.codes.clebermacieski.estruturasdedados.principal;
+package br.codes.clebermacieski.estruturasdedados.principal.model.pilha;
+
+import br.codes.clebermacieski.estruturasdedados.principal.model.EstruturaDeDados;
 
 public class Pilha extends EstruturaDeDados {
     private int TAMANHO;

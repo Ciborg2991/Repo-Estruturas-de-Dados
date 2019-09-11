@@ -1,4 +1,6 @@
-package br.codes.clebermacieski.estruturasdedados.principal;
+package br.codes.clebermacieski.estruturasdedados.principal.model;
+
+import br.codes.clebermacieski.estruturasdedados.principal.model.pilha.Pilha;
 
 import java.util.ArrayList;
 
