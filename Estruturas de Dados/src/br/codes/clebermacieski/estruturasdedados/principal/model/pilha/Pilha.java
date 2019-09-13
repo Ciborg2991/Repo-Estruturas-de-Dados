@@ -5,12 +5,12 @@ import br.codes.clebermacieski.estruturasdedados.principal.model.EstruturaDeDado
 public class Pilha extends EstruturaDeDados {
     private int TAMANHO;
     private int [] vetor;
-    private int indice;
+    private int indiceAtual;
 
     public Pilha(int tamanho){
         this.TAMANHO = tamanho;
         this.vetor= new int[this.TAMANHO];
-        this.indice = 0;
+        this.indiceAtual = 0;
     }
 
     public Pilha() {
@@ -18,40 +18,40 @@ public class Pilha extends EstruturaDeDados {
     }
 
     public void push(int valor) throws ArrayIndexOutOfBoundsException{
-        this.vetor[this.indice]= valor;
-        this.indice++;
-    }
-
-    public int top(){
-        return this.vetor[this.indice-1];
+        this.vetor[this.indiceAtual]= valor;
+        this.indiceAtual++;
     }
 
     public int pop() throws ArrayIndexOutOfBoundsException {
-        int aux = this.vetor[this.indice-1];
-        this.vetor[this.indice-1]= 0;
-        this.indice--;
+        int aux = this.vetor[this.indiceAtual -1];
+        this.vetor[this.indiceAtual -1]= 0;
+        this.indiceAtual--;
         return aux;
+    }
+
+    public int getTAMANHO() {
+        return TAMANHO;
+    }
+
+    public int getTamanhoAtual(){
+        return this.indiceAtual;
+    }
+
+    public int top(){
+        return this.vetor[this.indiceAtual -1];
+    }
+
+    boolean isEmpty(){
+        return this.indiceAtual == 0;
     }
 
     public void clear(){
         if(!this.isEmpty()){
-            for (int i = 0; i < this.indice; i++) {
+            for (int i = 0; i < this.indiceAtual; i++) {
                 this.vetor[i] = 0;
             }
-            this.indice= 0;
+            this.indiceAtual = 0;
         }
-    }
-
-    public int getTamanhoAtual(){
-        return this.indice;
-    }
-
-     boolean isEmpty(){
-         return this.indice == 0;
-     }
-
-    public int getTAMANHO() {
-        return TAMANHO;
     }
 
     @Override
