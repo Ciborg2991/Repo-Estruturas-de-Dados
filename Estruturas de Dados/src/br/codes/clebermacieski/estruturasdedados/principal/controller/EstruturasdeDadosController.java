@@ -3,7 +3,8 @@ package br.codes.clebermacieski.estruturasdedados.principal.controller;
 import br.codes.clebermacieski.estruturasdedados.principal.model.ColecaoEstruturaDeDados;
 import br.codes.clebermacieski.estruturasdedados.principal.model.EstruturaDeDados;
 import br.codes.clebermacieski.estruturasdedados.principal.model.Iterador;
-import br.codes.clebermacieski.estruturasdedados.principal.view.GUIInterfaceTextual;
+import br.codes.clebermacieski.estruturasdedados.principal.view.CLIEstrutura;
+import br.codes.clebermacieski.estruturasdedados.principal.view.CLIInterfacePrincipal;
 import br.codes.clebermacieski.estruturasdedados.principal.view.ViewEstruturas;
 
 import java.io.IOException;
@@ -15,7 +16,7 @@ public class EstruturasdeDadosController implements ControllerEstruturasdeDados{
 
 	public EstruturasdeDadosController(ColecaoEstruturaDeDados colecaoEstruturas) {
 		this.colecaoEstruturas = colecaoEstruturas;
-		interGUI = new GUIInterfaceTextual(colecaoEstruturas, this);
+		interGUI = new CLIInterfacePrincipal(colecaoEstruturas, this);
 		interGUI.pedirOpcaodeEstrutura();
 	}
 
@@ -33,8 +34,7 @@ public class EstruturasdeDadosController implements ControllerEstruturasdeDados{
         }
 
 	    if (encontrou){
-	        //TODO: colar peças e implementar
-
+	        CLIEstrutura cliEstrutura = new CLIEstrutura(estrutura, this);
         }else throw new IOException("Não foi possível encontrar a estrutura solicitada.");
 
 	    /*int flag = 0;

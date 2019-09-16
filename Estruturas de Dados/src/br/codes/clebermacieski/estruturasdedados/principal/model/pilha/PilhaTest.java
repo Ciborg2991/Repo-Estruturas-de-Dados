@@ -62,16 +62,16 @@ class PilhaTest {
     @Test
     void testaGetTamanhoPadrao(){
         var pilha = new Pilha();
-        assertEquals(0,pilha.getTAMANHO());
+        assertEquals(0,pilha.getTamanhoMaximo());
     }
 
     @Test
     void testaTamanhoInicial(){
         var pilha = new Pilha(1);
-        assertEquals(1,pilha.getTAMANHO());
+        assertEquals(1,pilha.getTamanhoMaximo());
 
         pilha = new Pilha(22);
-        assertEquals(22, pilha.getTAMANHO());
+        assertEquals(22, pilha.getTamanhoMaximo());
     }
 
     @Test

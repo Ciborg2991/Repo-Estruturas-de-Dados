@@ -2,14 +2,16 @@ package br.codes.clebermacieski.estruturasdedados.principal.model.pilha;
 
 import br.codes.clebermacieski.estruturasdedados.principal.model.EstruturaDeDados;
 
+import java.util.ArrayList;
+
 public class Pilha extends EstruturaDeDados {
-    private int TAMANHO;
+    private int tamanhoMaximo;
     private int [] vetor;
     private int indiceAtual;
 
     public Pilha(int tamanho){
-        this.TAMANHO = tamanho;
-        this.vetor= new int[this.TAMANHO];
+        this.tamanhoMaximo = tamanho;
+        this.vetor= new int[this.tamanhoMaximo];
         this.indiceAtual = 0;
     }
 
@@ -29,8 +31,8 @@ public class Pilha extends EstruturaDeDados {
         return aux;
     }
 
-    public int getTAMANHO() {
-        return TAMANHO;
+    public int getTamanhoMaximo() {
+        return tamanhoMaximo;
     }
 
     public int getTamanhoAtual(){
@@ -57,5 +59,12 @@ public class Pilha extends EstruturaDeDados {
     @Override
     public String toString(){
         return this.getClass().getSimpleName();
+    }
+
+    @Override
+    public ArrayList<String> retornarOperacoesDisponiveis() {
+        ArrayList operacoes = new ArrayList();
+        operacoes.add("getTamanhoMaximo");
+        return operacoes;
     }
 }

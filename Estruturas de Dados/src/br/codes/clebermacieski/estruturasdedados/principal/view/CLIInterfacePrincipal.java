@@ -9,14 +9,14 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- * Model concreto que mostra estruturas e açoes disponíveis nos models.
+ * Command Line Interface principal.
  * @author Cléber Macieski
  */
-public class GUIInterfaceTextual extends ViewEstruturas{
+public class CLIInterfacePrincipal extends ViewEstruturas{
     private BufferedReader leitorAmortecido;
     private Iterador iterador;
 
-    public GUIInterfaceTextual(ColecaoEstruturaDeDados estruturas, ControllerEstruturasdeDados estrategia){
+    public CLIInterfacePrincipal(ColecaoEstruturaDeDados estruturas, ControllerEstruturasdeDados estrategia){
         super(estruturas, estrategia);
         leitorAmortecido= new BufferedReader(new InputStreamReader(System.in));
     }
