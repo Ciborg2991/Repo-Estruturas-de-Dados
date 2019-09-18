@@ -39,6 +39,8 @@ public class EstruturasdeDadosController implements ControllerEstruturasdeDados{
 
 	    if (encontrou){
 	        CLIEstrutura cliEstrutura = new CLIEstrutura(estrutura, this);
+	        cliEstrutura.mostrarOperacoes();
+	        cliEstrutura.pegarOpcao();
         }else throw new IOException("Não foi possível encontrar a estrutura solicitada.");
 
 	    /*int flag = 0;

@@ -6,6 +6,7 @@ import br.codes.clebermacieski.estruturasdedados.principal.model.Operacao;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.Method;
 
@@ -20,7 +21,13 @@ public class CLIEstrutura{
         bufferedReader = new BufferedReader(new InputStreamReader(System.in));
     }
 
-    void mostrarOperacoes() {
+    CLIEstrutura(EstruturaDeDados estrutura, EstruturasdeDadosController estruturasdeDadosController, InputStream entradaParaTeste) {
+        this.model = estrutura;
+        this.controller = estruturasdeDadosController;
+        bufferedReader = new BufferedReader(new InputStreamReader(entradaParaTeste));
+    }
+
+    public void mostrarOperacoes() {
         System.out.println("Selecione operação de "+model.toString());
 
         var i = 1;
@@ -31,5 +38,9 @@ public class CLIEstrutura{
                 i++;
             }
         }
+    }
+
+    public int pegarOpcao() throws IOException {
+        return Integer.parseInt(bufferedReader.readLine());
     }
 }
