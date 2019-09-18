@@ -20,7 +20,11 @@ public class EstruturasdeDadosController implements ControllerEstruturasdeDados{
 		interGUI.pedirOpcaodeEstrutura();
 	}
 
-	@Override
+    public EstruturasdeDadosController() {
+        //TODO: Controller de estrutura
+    }
+
+    @Override
 	public void exibirInterfaceEspecifica(int indiceEstruturaSelecionada) throws IOException {
 		int i = 1;
 		boolean encontrou = false;

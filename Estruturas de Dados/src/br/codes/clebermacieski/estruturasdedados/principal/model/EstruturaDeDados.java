@@ -1,7 +1,6 @@
 package br.codes.clebermacieski.estruturasdedados.principal.model;
 
-import java.util.ArrayList;
+import java.util.LinkedHashMap;
 
 public abstract class EstruturaDeDados {
-    public abstract ArrayList<String> retornarOperacoesDisponiveis();
 }

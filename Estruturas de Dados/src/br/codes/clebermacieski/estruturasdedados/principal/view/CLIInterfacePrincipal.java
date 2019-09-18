@@ -13,12 +13,12 @@ import java.io.InputStreamReader;
  * @author Cléber Macieski
  */
 public class CLIInterfacePrincipal extends ViewEstruturas{
-    private BufferedReader leitorAmortecido;
+    private BufferedReader bufferedReader;
     private Iterador iterador;
 
     public CLIInterfacePrincipal(ColecaoEstruturaDeDados estruturas, ControllerEstruturasdeDados estrategia){
         super(estruturas, estrategia);
-        leitorAmortecido= new BufferedReader(new InputStreamReader(System.in));
+        bufferedReader = new BufferedReader(new InputStreamReader(System.in));
     }
 
     @Override
@@ -37,7 +37,7 @@ public class CLIInterfacePrincipal extends ViewEstruturas{
                 boolean opcaoEhValida = false;
                 do{
                     this.mostraOpcoes();
-                    opcao = Integer.parseInt(leitorAmortecido.readLine());
+                    opcao = Integer.parseInt(bufferedReader.readLine());
 
                     int i = 0;
                     for (Iterador iterador = estruturas.pegarIterador(); iterador.temProximo(); iterador.pegarProximo()) {

@@ -1,8 +1,9 @@
 package br.codes.clebermacieski.estruturasdedados.principal.model.pilha;
 
 import br.codes.clebermacieski.estruturasdedados.principal.model.EstruturaDeDados;
+import br.codes.clebermacieski.estruturasdedados.principal.model.Operacao;
 
-import java.util.ArrayList;
+import java.util.LinkedHashMap;
 
 public class Pilha extends EstruturaDeDados {
     private int tamanhoMaximo;
@@ -19,11 +20,13 @@ public class Pilha extends EstruturaDeDados {
 
     }
 
+    @Operacao(nome = "Inserir elemento")
     public void push(int valor) throws ArrayIndexOutOfBoundsException{
         this.vetor[this.indiceAtual]= valor;
         this.indiceAtual++;
     }
 
+    @Operacao(nome = "Remover elemento")
     public int pop() throws ArrayIndexOutOfBoundsException {
         int aux = this.vetor[this.indiceAtual -1];
         this.vetor[this.indiceAtual -1]= 0;
@@ -31,14 +34,17 @@ public class Pilha extends EstruturaDeDados {
         return aux;
     }
 
+    @Operacao(nome = "Mostrar tamanho maximo")
     public int getTamanhoMaximo() {
         return tamanhoMaximo;
     }
 
+    @Operacao(nome = "Mostrar tamanho atual")
     public int getTamanhoAtual(){
         return this.indiceAtual;
     }
 
+    @Operacao(nome = "Pegar elemento do topo")
     public int top(){
         return this.vetor[this.indiceAtual -1];
     }
@@ -47,6 +53,7 @@ public class Pilha extends EstruturaDeDados {
         return this.indiceAtual == 0;
     }
 
+    @Operacao(nome = "Limpar pilha")
     public void clear(){
         if(!this.isEmpty()){
             for (int i = 0; i < this.indiceAtual; i++) {
@@ -61,10 +68,4 @@ public class Pilha extends EstruturaDeDados {
         return this.getClass().getSimpleName();
     }
 
-    @Override
-    public ArrayList<String> retornarOperacoesDisponiveis() {
-        ArrayList operacoes = new ArrayList();
-        operacoes.add("getTamanhoMaximo");
-        return operacoes;
-    }
 }
