@@ -5,12 +5,9 @@ import br.codes.clebermacieski.estruturasdedados.principal.model.EstruturaDeDado
 import br.codes.clebermacieski.estruturasdedados.principal.model.Operacao;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.Set;
 
 public class CLIEstrutura{
     private final EstruturaDeDados model;
@@ -23,13 +20,15 @@ public class CLIEstrutura{
         bufferedReader = new BufferedReader(new InputStreamReader(System.in));
     }
 
-    public void mostrarOperacoes() {
+    void mostrarOperacoes() {
         System.out.println("Selecione operação de "+model.toString());
 
+        var i = 1;
         Class classe = model.getClass();
         for(Method metodo: classe.getDeclaredMethods()){
             if (metodo.isAnnotationPresent(Operacao.class)){
-                System.out.println(metodo.getAnnotation(Operacao.class));
+                System.out.println(i + " - " +metodo.getAnnotation(Operacao.class).nome());
+                i++;
             }
         }
     }
