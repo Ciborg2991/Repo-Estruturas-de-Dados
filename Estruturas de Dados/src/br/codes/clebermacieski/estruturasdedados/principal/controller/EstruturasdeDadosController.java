@@ -21,8 +21,8 @@ public class EstruturasdeDadosController implements ControllerEstruturasdeDados{
 	}
 
     public EstruturasdeDadosController() {
-        //TODO: Controller de estrutura
     }
+
 
     @Override
 	public void exibirInterfaceEspecifica(int indiceEstruturaSelecionada) throws IOException {
@@ -41,54 +41,7 @@ public class EstruturasdeDadosController implements ControllerEstruturasdeDados{
 	        CLIEstrutura cliEstrutura = new CLIEstrutura(estrutura, this);
 	        cliEstrutura.mostrarOperacoes();
 	        cliEstrutura.pegarOpcao();
+            //TODO: Tratar escolha. Talvez estender CLIEstrutura
         }else throw new IOException("Não foi possível encontrar a estrutura solicitada.");
-
-	    /*int flag = 0;
-
-		do{
-			switch (interf) {
-				case 1:
-					PilhaController pilhaController = new PilhaController();
-					pilhaController.instanciar();
-					pilhaController.verificarOpcaoPilha();
-					break;
-
-				case 2:
-					FilaController filaController = new FilaController();
-					filaController.verificarOpcao();
-					break;
-
-				case 3:
-					ListaSimpleEncadeadaController lseController = new ListaSimpleEncadeadaController();
-					lseController.instanciar();
-					lseController.verificarOpcao();
-					break;
-
-				case 4:
-					ListaDupEncController ldeController = new ListaDupEncController();
-					ldeController.verificarOpcao();
-					break;
-
-				case 5:
-					ListaCircularController lcircController = new ListaCircularController();
-					lcircController.verificarOpcao();
-					break;
-
-				case 6:
-					ArvoreBinController arvBinController = new ArvoreBinController();
-					arvBinController.instanciar();
-					arvBinController.verificarOpcao();
-				case 0:
-					flag = 1;
-					break;
-
-				default:
-					System.out.println("Erro estranho.");
-					break;
-			}
-		}
-		while (flag != 1);
-		System.out.println("Programa Encerrado.");*/
-
 	}
 }

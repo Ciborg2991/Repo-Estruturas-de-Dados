@@ -23,51 +23,21 @@ public class CLIInterfacePrincipal extends ViewEstruturas{
 
     @Override
     public void pedirOpcaodeEstrutura() {
-        try {
-            controller.exibirInterfaceEspecifica(pegarOpcaoEstrutura());
-        }catch (IOException e){
-            System.out.println(e.getMessage());
-        }
-    }
+        System.out.println("=====Estruturas de Dados=====\n");
 
-    private int pegarOpcaoEstrutura() {
-        int opcao;
-        do{
+        do {
             try {
-                boolean opcaoEhValida = false;
-                do{
-                    this.mostraOpcoes();
-                    opcao = Integer.parseInt(bufferedReader.readLine());
-
-                    int i = 0;
-                    for (Iterador iterador = estruturas.pegarIterador(); iterador.temProximo(); iterador.pegarProximo()) {
-                        i++;
-                        if (opcao == i) {
-                            opcaoEhValida = true;
-                            break;
-                        }
-                    }
-
-                    if (!opcaoEhValida) {
-                        System.out.println("Opção não é valida.");
-                    }
-                }
-                while (!opcaoEhValida);
-
-                return opcao;
-            }
-            catch (NumberFormatException e) {
-                System.out.println("Erro no tipo dado como opção digitado, tente novamente.");
-            }
-            catch (IOException e){
+                mostraOpcoes();
+                controller.exibirInterfaceEspecifica(pegarOpcaoEstrutura());
+            } catch (IOException e) {
                 System.out.println(e.getMessage());
+            }catch (NumberFormatException e){
             }
-        } while (true);
+        }while (true);
     }
 
     private void mostraOpcoes() throws IOException {
-        System.out.println("=====Estruturas de Dados=====\n");
-        System.out.println("Selecione uma estrutura:\n");
+        System.out.println("Selecione uma estrutura da lista digitando seu número:\n");
         int i = 0;
         boolean tinhaElementos = false;
 
@@ -78,6 +48,10 @@ public class CLIInterfacePrincipal extends ViewEstruturas{
         }
 
         if (!tinhaElementos) throw new IOException("Não há estruturas disponíveis.");
+    }
+
+    private int pegarOpcaoEstrutura() throws IOException {
+        return Integer.parseInt(bufferedReader.readLine());
     }
 
 }

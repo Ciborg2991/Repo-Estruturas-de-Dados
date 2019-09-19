@@ -21,7 +21,6 @@ class CLIEstruturaTest {
     void pegarOpcao() {
         var cli = new CLIEstrutura(new Pilha(), new EstruturasdeDadosController(), new ByteArrayInputStream("1".getBytes()));
 
-        //System.setIn();
         try {
             assertEquals(1,cli.pegarOpcao());
         } catch (IOException e) {
