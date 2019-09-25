@@ -33,6 +33,7 @@ public class CLIInterfacePrincipal extends ViewEstruturas{
                 System.out.println(e.getMessage());
             }catch (NumberFormatException e){
             }
+            //TODO: Implementar saida
         }while (true);
     }
 

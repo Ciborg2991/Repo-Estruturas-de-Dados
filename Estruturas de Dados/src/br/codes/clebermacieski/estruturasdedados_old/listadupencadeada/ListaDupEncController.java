@@ -1,4 +1,4 @@
-package br.codes.clebermacieski.estruturasdedados.listadupencadeada;
+package br.codes.clebermacieski.estruturasdedados_old.listadupencadeada;
 
 public class ListaDupEncController {
 

@@ -1,4 +1,4 @@
-package br.codes.clebermacieski.estruturasdedados.listasimplesncadeada;
+package br.codes.clebermacieski.estruturasdedados_old.listasimplesncadeada;
 
 public class ListaSimplesmenteEncadeada {
 	private Nodo inicio;

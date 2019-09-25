@@ -1,4 +1,4 @@
-package br.codes.clebermacieski.estruturasdedados.listasimplesncadeada;
+package br.codes.clebermacieski.estruturasdedados_old.listasimplesncadeada;
 
 public class Nodo {
 	private String conteudo;

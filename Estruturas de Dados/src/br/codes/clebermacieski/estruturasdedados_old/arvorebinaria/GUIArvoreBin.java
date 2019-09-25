@@ -1,4 +1,4 @@
-package br.codes.clebermacieski.estruturasdedados.arvorebinaria;
+package br.codes.clebermacieski.estruturasdedados_old.arvorebinaria;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

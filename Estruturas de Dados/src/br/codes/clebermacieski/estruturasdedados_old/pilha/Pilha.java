@@ -1,4 +1,4 @@
-package br.codes.clebermacieski.estruturasdedados.pilha;
+package br.codes.clebermacieski.estruturasdedados_old.pilha;
 
 public class Pilha {
 	private final int TAMANHO;
