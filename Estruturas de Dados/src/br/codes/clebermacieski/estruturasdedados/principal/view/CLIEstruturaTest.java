@@ -1,6 +1,7 @@
 package br.codes.clebermacieski.estruturasdedados.principal.view;
 
 import br.codes.clebermacieski.estruturasdedados.principal.controller.EstruturasdeDadosController;
+import br.codes.clebermacieski.estruturasdedados.principal.model.EstruturaDeDados;
 import br.codes.clebermacieski.estruturasdedados.principal.model.pilha.Pilha;
 import org.junit.jupiter.api.Test;
 
@@ -13,16 +14,16 @@ class CLIEstruturaTest {
 
     @Test
     void mostrarOperacoes() {
-        var cli = new CLIEstrutura(new Pilha(), new EstruturasdeDadosController());
+        var cli = new CLIEstrutura(new Pilha());
         cli.mostrarOperacoes();
     }
 
     @Test
     void pegarOpcao() {
-        var cli = new CLIEstrutura(new Pilha(), new EstruturasdeDadosController(), new ByteArrayInputStream("1".getBytes()));
+        var cli = new CLIEstrutura(new Pilha(), new ByteArrayInputStream("Inserir elemento".getBytes()));
 
         try {
-            assertEquals(1,cli.pegarOpcao());
+            assertEquals("Inserir elemento",cli.pedirOpcao());
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -20,16 +20,4 @@ public abstract class EstruturaDeDados {
         }
         return operacoes;
     }
-
-    /*public void executarOperacao(int operacaoSelecionada) {
-        Class classe = this.getClass();
-        int i = 1;
-        for(Method metodo: classe.getDeclaredMethods()){
-            if (metodo.isAnnotationPresent(Operacao.class)){
-                if (operacaoSelecionada == i){
-
-                }
-            }
-        }
-    }*/
 }

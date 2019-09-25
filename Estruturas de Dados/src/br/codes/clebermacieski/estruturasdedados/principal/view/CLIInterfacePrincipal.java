@@ -47,6 +47,8 @@ public class CLIInterfacePrincipal extends ViewEstruturas{
             System.out.println(i +" - "+ iterador.pegarProximo().toString() );
         }
 
+        System.out.println("0 - Sair");
+
         if (!tinhaElementos) throw new IOException("Não há estruturas disponíveis.");
     }
 

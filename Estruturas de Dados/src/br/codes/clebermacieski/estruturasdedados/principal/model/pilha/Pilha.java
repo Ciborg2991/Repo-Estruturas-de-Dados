@@ -3,8 +3,6 @@ package br.codes.clebermacieski.estruturasdedados.principal.model.pilha;
 import br.codes.clebermacieski.estruturasdedados.principal.model.EstruturaDeDados;
 import br.codes.clebermacieski.estruturasdedados.principal.model.Operacao;
 
-import java.util.LinkedHashMap;
-
 public class Pilha extends EstruturaDeDados {
     private int tamanhoMaximo;
     private int [] vetor;
@@ -21,13 +19,13 @@ public class Pilha extends EstruturaDeDados {
     }
 
     @Operacao(nome = "Inserir elemento")
-    void push(int valor) throws ArrayIndexOutOfBoundsException{
+    public void push(int valor) throws ArrayIndexOutOfBoundsException{
         this.vetor[this.indiceAtual]= valor;
         this.indiceAtual++;
     }
 
     @Operacao(nome = "Remover elemento")
-    int pop() throws ArrayIndexOutOfBoundsException {
+    public int pop() throws ArrayIndexOutOfBoundsException {
         int aux = this.vetor[this.indiceAtual -1];
         this.vetor[this.indiceAtual -1]= 0;
         this.indiceAtual--;
@@ -35,17 +33,17 @@ public class Pilha extends EstruturaDeDados {
     }
 
     @Operacao(nome = "Mostrar tamanho maximo")
-    int getTamanhoMaximo() {
+    public int getTamanhoMaximo() {
         return tamanhoMaximo;
     }
 
     @Operacao(nome = "Mostrar tamanho atual")
-    int getTamanhoAtual(){
+    public int getTamanhoAtual(){
         return this.indiceAtual;
     }
 
-    @Operacao(nome = "Pegar elemento do topo")
-    int top(){
+    @Operacao(nome = "Mostrar elemento do topo")
+    public int top(){
         return this.vetor[this.indiceAtual -1];
     }
 
@@ -54,7 +52,7 @@ public class Pilha extends EstruturaDeDados {
     }
 
     @Operacao(nome = "Limpar pilha")
-    void clear(){
+    public void clear(){
         if(!this.isEmpty()){
             for (int i = 0; i < this.indiceAtual; i++) {
                 this.vetor[i] = 0;
