@@ -1,0 +1,14 @@
+br.codes.clebermacieski.estruturasdedados
+br.codes.clebermacieski.estruturasdedados_old.arvorebinaria
+br.codes.clebermacieski.estruturasdedados_old.fila
+br.codes.clebermacieski.estruturasdedados_old.listacircular
+br.codes.clebermacieski.estruturasdedados_old.listadupencadeada
+br.codes.clebermacieski.estruturasdedados_old.listasimplesncadeada
+br.codes.clebermacieski.estruturasdedados_old.pilha
+br.codes.clebermacieski.estruturasdedados.controller
+br.codes.clebermacieski.estruturasdedados.EstruturasDeDados
+br.codes.clebermacieski.estruturasdedados.EstruturasDeDados.pilha
+br.codes.clebermacieski.estruturasdedados.util
+br.codes.clebermacieski.estruturasdedados.view
+br.codes.clebermacieski.estruturasdedados.view.cli_estrutura
+br.codes.clebermacieski.estruturasdedados.view.cli_estrutura.cli_pilha

@@ -9,8 +9,7 @@ import java.util.ArrayList;
 /**
  * Coleção das Estruturas de Dados implementadas.
  * Utilizada essa coleção a fim de desacoplar a interface gráfica dos modelos que podem ser adicionados ao longo do tempo.
- * Esta classe compõe o padrão Iterator
- *
+ * Esta classe é parte do padrão Iterator.
  * @author Cléber Macieski
  */
 
