@@ -1,4 +1,4 @@
-package br.codes.clebermacieski.estruturasdedados.principal.model;
+package br.codes.clebermacieski.estruturasdedados.util;
 
 public interface Observavel {
     void registrarObservador(Observador observador);

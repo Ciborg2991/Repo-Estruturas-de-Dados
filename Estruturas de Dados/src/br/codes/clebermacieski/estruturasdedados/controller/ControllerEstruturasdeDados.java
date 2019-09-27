@@ -1,4 +1,4 @@
-package br.codes.clebermacieski.estruturasdedados.principal.controller;
+package br.codes.clebermacieski.estruturasdedados.controller;
 
 import java.io.IOException;
 

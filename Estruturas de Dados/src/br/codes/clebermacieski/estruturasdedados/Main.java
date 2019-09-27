@@ -1,8 +1,13 @@
 package br.codes.clebermacieski.estruturasdedados;
 
-import br.codes.clebermacieski.estruturasdedados.principal.model.ColecaoEstruturaDeDados;
-import br.codes.clebermacieski.estruturasdedados.principal.controller.EstruturasdeDadosController;
+import br.codes.clebermacieski.estruturasdedados.EstruturasDeDados.ColecaoEstruturaDeDados;
+import br.codes.clebermacieski.estruturasdedados.controller.EstruturasdeDadosController;
 
+/**
+ * Projeto que implementa estruturas de dados simples e utiliza padrões para permitir o acoplamento
+ * de novas estruturas mais facilmente.
+ * @author Cléber Macieski
+ */
 public class Main {
 
 	public static void main(String[] args) {

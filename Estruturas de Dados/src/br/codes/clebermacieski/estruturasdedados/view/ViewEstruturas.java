@@ -1,7 +1,7 @@
-package br.codes.clebermacieski.estruturasdedados.principal.view;
+package br.codes.clebermacieski.estruturasdedados.view;
 
-import br.codes.clebermacieski.estruturasdedados.principal.model.ColecaoEstruturaDeDados;
-import br.codes.clebermacieski.estruturasdedados.principal.controller.ControllerEstruturasdeDados;
+import br.codes.clebermacieski.estruturasdedados.EstruturasDeDados.ColecaoEstruturaDeDados;
+import br.codes.clebermacieski.estruturasdedados.controller.ControllerEstruturasdeDados;
 
 /**
  * Classe abstrata e parte do design pattern composto MVC, implementando o desing pattern strategy.

@@ -1,18 +1,20 @@
-package br.codes.clebermacieski.estruturasdedados.principal.model;
+package br.codes.clebermacieski.estruturasdedados.EstruturasDeDados;
 
-import br.codes.clebermacieski.estruturasdedados.principal.model.pilha.Pilha;
+import br.codes.clebermacieski.estruturasdedados.EstruturasDeDados.pilha.Pilha;
+import br.codes.clebermacieski.estruturasdedados.util.Iterador;
+import br.codes.clebermacieski.estruturasdedados.util.Iteravel;
 
 import java.util.ArrayList;
 
 /**
- * Coleção de Estruturas de Dados implementadas.
+ * Coleção das Estruturas de Dados implementadas.
  * Utilizada essa coleção a fim de desacoplar a interface gráfica dos modelos que podem ser adicionados ao longo do tempo.
  * Esta classe compõe o padrão Iterator
  *
  * @author Cléber Macieski
  */
 
-public class ColecaoEstruturaDeDados implements Iteravel{
+public class ColecaoEstruturaDeDados implements Iteravel {
     ArrayList<EstruturaDeDados> estruturas;
 
     public ColecaoEstruturaDeDados(){

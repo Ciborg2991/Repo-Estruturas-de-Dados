@@ -1,8 +1,6 @@
-package br.codes.clebermacieski.estruturasdedados.principal.view;
+package br.codes.clebermacieski.estruturasdedados.view.cli_estrutura;
 
-import br.codes.clebermacieski.estruturasdedados.principal.controller.EstruturasdeDadosController;
-import br.codes.clebermacieski.estruturasdedados.principal.model.EstruturaDeDados;
-import br.codes.clebermacieski.estruturasdedados.principal.model.pilha.Pilha;
+import br.codes.clebermacieski.estruturasdedados.EstruturasDeDados.pilha.Pilha;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;

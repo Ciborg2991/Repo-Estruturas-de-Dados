@@ -1,6 +1,6 @@
-package br.codes.clebermacieski.estruturasdedados.principal.view;
+package br.codes.clebermacieski.estruturasdedados.view.cli_estrutura;
 
-import br.codes.clebermacieski.estruturasdedados.principal.model.EstruturaDeDados;
+import br.codes.clebermacieski.estruturasdedados.EstruturasDeDados.EstruturaDeDados;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -38,13 +38,16 @@ public class CLIEstrutura{
     public String pedirOpcao() throws IOException {
         int opcao = Integer.parseInt(bufferedReader.readLine());
 
-        ArrayList<String> operacoes = estrutura.pegarOperacoes();
-        int i = 1;
-        for(String operacao:operacoes) {
-            if (i == opcao){
-                return operacao;
+        if (opcao != 0){
+            ArrayList<String> operacoes = estrutura.pegarOperacoes();
+            int i = 1;
+            for (String operacao : operacoes) {
+                if (i == opcao) {
+                    return operacao;
+                }
             }
         }
+        if (opcao == 0) return "Sair";
 
         return null;
     }

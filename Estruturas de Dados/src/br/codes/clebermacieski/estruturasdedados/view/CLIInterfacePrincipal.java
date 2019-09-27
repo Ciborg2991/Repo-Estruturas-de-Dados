@@ -1,8 +1,8 @@
-package br.codes.clebermacieski.estruturasdedados.principal.view;
+package br.codes.clebermacieski.estruturasdedados.view;
 
-import br.codes.clebermacieski.estruturasdedados.principal.model.ColecaoEstruturaDeDados;
-import br.codes.clebermacieski.estruturasdedados.principal.controller.ControllerEstruturasdeDados;
-import br.codes.clebermacieski.estruturasdedados.principal.model.Iterador;
+import br.codes.clebermacieski.estruturasdedados.EstruturasDeDados.ColecaoEstruturaDeDados;
+import br.codes.clebermacieski.estruturasdedados.controller.ControllerEstruturasdeDados;
+import br.codes.clebermacieski.estruturasdedados.util.Iterador;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -24,17 +24,20 @@ public class CLIInterfacePrincipal extends ViewEstruturas{
     @Override
     public void pedirOpcaodeEstrutura() {
         System.out.println("=====Estruturas de Dados=====\n");
-
+        var rodando  = true;
         do {
             try {
                 mostraOpcoes();
                 controller.exibirInterfaceEspecifica(pegarOpcaoEstrutura());
             } catch (IOException e) {
                 System.out.println(e.getMessage());
-            }catch (NumberFormatException e){
+            } catch (NumberFormatException e){
             }
-            //TODO: Implementar saida
-        }while (true);
+            catch (RuntimeException e){
+                System.out.println(e.getMessage());
+                rodando = false;
+            }
+        }while (rodando);
     }
 
     private void mostraOpcoes() throws IOException {
@@ -48,7 +51,7 @@ public class CLIInterfacePrincipal extends ViewEstruturas{
             System.out.println(i +" - "+ iterador.pegarProximo().toString() );
         }
 
-        System.out.println("0 - Sair");
+        System.out.println("0 - Encerrar");
 
         if (!tinhaElementos) throw new IOException("Não há estruturas disponíveis.");
     }

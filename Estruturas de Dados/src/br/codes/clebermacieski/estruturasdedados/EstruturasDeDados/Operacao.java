@@ -1,4 +1,4 @@
-package br.codes.clebermacieski.estruturasdedados.principal.model;
+package br.codes.clebermacieski.estruturasdedados.EstruturasDeDados;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

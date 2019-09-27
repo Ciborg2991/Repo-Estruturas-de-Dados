@@ -1,4 +1,6 @@
-package br.codes.clebermacieski.estruturasdedados.principal.model;
+package br.codes.clebermacieski.estruturasdedados.EstruturasDeDados;
+
+import br.codes.clebermacieski.estruturasdedados.util.Iterador;
 
 public class IteradorEstruturas implements Iterador {
     private int posicaoAtual;

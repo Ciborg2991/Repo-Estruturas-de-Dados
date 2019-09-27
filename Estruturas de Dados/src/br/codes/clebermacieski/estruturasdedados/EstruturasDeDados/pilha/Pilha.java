@@ -1,7 +1,7 @@
-package br.codes.clebermacieski.estruturasdedados.principal.model.pilha;
+package br.codes.clebermacieski.estruturasdedados.EstruturasDeDados.pilha;
 
-import br.codes.clebermacieski.estruturasdedados.principal.model.EstruturaDeDados;
-import br.codes.clebermacieski.estruturasdedados.principal.model.Operacao;
+import br.codes.clebermacieski.estruturasdedados.EstruturasDeDados.EstruturaDeDados;
+import br.codes.clebermacieski.estruturasdedados.EstruturasDeDados.Operacao;
 
 public class Pilha extends EstruturaDeDados {
     private int tamanhoMaximo;

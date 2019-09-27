@@ -1,4 +1,4 @@
-package br.codes.clebermacieski.estruturasdedados.principal.model.pilha;
+package br.codes.clebermacieski.estruturasdedados.EstruturasDeDados.pilha;
 
 import org.junit.jupiter.api.Test;
 
@@ -51,7 +51,7 @@ class PilhaTest {
         var pilha = new Pilha(1);
         pilha.push(159);
         pilha.pop();
-        assertThrows(ArrayIndexOutOfBoundsException.class,() -> pilha.pop());
+        assertThrows(ArrayIndexOutOfBoundsException.class, pilha::pop);
     }
 
     @Test
@@ -96,7 +96,7 @@ class PilhaTest {
     @Test
     void testaTopPilhaVazia(){
         var pilha = new Pilha(2);
-        assertThrows(ArrayIndexOutOfBoundsException.class,()-> pilha.top());
+        assertThrows(ArrayIndexOutOfBoundsException.class, pilha::top);
 
         pilha.push(456);
         pilha.push(753);
@@ -113,7 +113,7 @@ class PilhaTest {
         pilha.pop();
         assertEquals(456, pilha.pop());
 
-        assertThrows(ArrayIndexOutOfBoundsException.class, ()-> pilha.top());
+        assertThrows(ArrayIndexOutOfBoundsException.class, pilha::top);
     }
 
     @Test

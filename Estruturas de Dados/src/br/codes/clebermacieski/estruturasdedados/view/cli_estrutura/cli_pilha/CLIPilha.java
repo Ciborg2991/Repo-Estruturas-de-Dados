@@ -1,7 +1,7 @@
-package br.codes.clebermacieski.estruturasdedados.principal.view.pilha;
+package br.codes.clebermacieski.estruturasdedados.view.cli_estrutura.cli_pilha;
 
-import br.codes.clebermacieski.estruturasdedados.principal.model.EstruturaDeDados;
-import br.codes.clebermacieski.estruturasdedados.principal.view.CLIEstrutura;
+import br.codes.clebermacieski.estruturasdedados.EstruturasDeDados.EstruturaDeDados;
+import br.codes.clebermacieski.estruturasdedados.view.cli_estrutura.CLIEstrutura;
 
 import java.io.IOException;
 
@@ -26,5 +26,9 @@ public class CLIPilha extends CLIEstrutura {
     public void mostarRetirado(int pop) {
         System.out.println("Elemento retirado da pilha: " + pop);
 
+    }
+
+    public void operacaoNaoEncontrada() {
+        System.out.println("Operação não encontrada.");
     }
 }
