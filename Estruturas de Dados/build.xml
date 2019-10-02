@@ -11,7 +11,7 @@
             Contrução de aplicação que utiliza implementaçoes de estruturas de dados diversas.
     </description>
 	
-	<property name="src.dir" value="src"/>
+	<property name="src.dir" value="src/main"/>
 	<property name="build.dir" value="build"/>
 	<property name="dist.dir" value="dist"/>
 	<property name="main-class" value="br.codes.clebermacieski.estruturasdedados.Main"/>
