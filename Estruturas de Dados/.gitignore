@@ -3,7 +3,7 @@ dist/
 bin/
 .classpath
 .project
-/.idea/*
 /Estruturas de Dados.iml
 /uml/Projeto Estruturas de Dados.asta.lock
 /lib/
+/.idea/
