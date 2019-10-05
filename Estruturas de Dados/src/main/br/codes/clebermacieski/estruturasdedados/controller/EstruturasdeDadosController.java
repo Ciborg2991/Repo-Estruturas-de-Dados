@@ -1,9 +1,9 @@
 package br.codes.clebermacieski.estruturasdedados.controller;
 
-import br.codes.clebermacieski.estruturasdedados.EstruturasDeDados.ColecaoEstruturaDeDados;
-import br.codes.clebermacieski.estruturasdedados.EstruturasDeDados.EstruturaDeDados;
+import br.codes.clebermacieski.estruturasdedados.estruturas_de_dados.ColecaoEstruturaDeDados;
+import br.codes.clebermacieski.estruturasdedados.estruturas_de_dados.EstruturaDeDados;
 import br.codes.clebermacieski.estruturasdedados.util.Iterador;
-import br.codes.clebermacieski.estruturasdedados.EstruturasDeDados.pilha.Pilha;
+import br.codes.clebermacieski.estruturasdedados.estruturas_de_dados.pilha.Pilha;
 import br.codes.clebermacieski.estruturasdedados.view.CLIInterfacePrincipal;
 import br.codes.clebermacieski.estruturasdedados.view.ViewEstruturas;
 import br.codes.clebermacieski.estruturasdedados.view.cli_estrutura.cli_pilha.CLIPilha;

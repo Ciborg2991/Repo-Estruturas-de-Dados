@@ -1,4 +1,4 @@
-package br.codes.clebermacieski.estruturasdedados.EstruturasDeDados;
+package br.codes.clebermacieski.estruturasdedados.estruturas_de_dados;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -10,14 +10,15 @@ public abstract class EstruturaDeDados {
      * na estrutura de maneira desacoplada
      * @return Uma lista de operações
      */
-    public ArrayList<String> pegarOperacoes(){
-        ArrayList<String> operacoes = new ArrayList<>();
+    public String[] pegarOperacoes(){
         Class classe = this.getClass();
+        String[] operacaoIndexada = new String[classe.getDeclaredMethods().length];
+        //TODO: Usar array multidimensional
         for(Method metodo: classe.getDeclaredMethods()){
             if (metodo.isAnnotationPresent(Operacao.class)){
-                operacoes.add(metodo.getAnnotation(Operacao.class).nome());
+                operacaoIndexada[metodo.getAnnotation(Operacao.class).posicao()] = metodo.getAnnotation(Operacao.class).nome();
             }
         }
-        return operacoes;
+        return operacaoIndexada;
     }
 }

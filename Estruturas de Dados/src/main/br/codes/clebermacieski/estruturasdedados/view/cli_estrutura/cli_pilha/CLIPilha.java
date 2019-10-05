@@ -1,6 +1,6 @@
 package br.codes.clebermacieski.estruturasdedados.view.cli_estrutura.cli_pilha;
 
-import br.codes.clebermacieski.estruturasdedados.EstruturasDeDados.EstruturaDeDados;
+import br.codes.clebermacieski.estruturasdedados.estruturas_de_dados.EstruturaDeDados;
 import br.codes.clebermacieski.estruturasdedados.view.cli_estrutura.CLIEstrutura;
 
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package br.codes.clebermacieski.estruturasdedados.EstruturasDeDados;
+package br.codes.clebermacieski.estruturasdedados.estruturas_de_dados;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -9,4 +9,6 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Operacao {
     String nome();
+
+    int posicao();
 }

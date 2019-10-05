@@ -1,4 +1,4 @@
-package br.codes.clebermacieski.estruturasdedados.EstruturasDeDados;
+package br.codes.clebermacieski.estruturasdedados.estruturas_de_dados;
 
 class EstruturaDeDadosTest {
     /*@Test

@@ -1,6 +1,6 @@
 package br.codes.clebermacieski.estruturasdedados.view.cli_estrutura;
 
-import br.codes.clebermacieski.estruturasdedados.EstruturasDeDados.EstruturaDeDados;
+import br.codes.clebermacieski.estruturasdedados.estruturas_de_dados.EstruturaDeDados;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -25,7 +25,7 @@ public class CLIEstrutura{
     public void mostrarOperacoes() {
         System.out.println("Selecione operação de "+ estrutura.toString());
 
-        ArrayList<String> operacoes = estrutura.pegarOperacoes();
+        String[] operacoes = estrutura.pegarOperacoes();
         int i = 1;
         for(String operacao:operacoes){
             System.out.println(i + " - " + operacao);
@@ -39,11 +39,11 @@ public class CLIEstrutura{
         int opcao = Integer.parseInt(bufferedReader.readLine());
 
         if (opcao != 0){
-            ArrayList<String> operacoes = estrutura.pegarOperacoes();
-            int i = 1;
-            for (String operacao : operacoes) {
-                if (i == opcao) {
-                    return operacao;
+            String[] operacoes = estrutura.pegarOperacoes();
+
+            for (int i = 1; i < operacoes.length; i++) {
+                if (i  == opcao) {
+                    return operacoes[i];
                 }
             }
         }

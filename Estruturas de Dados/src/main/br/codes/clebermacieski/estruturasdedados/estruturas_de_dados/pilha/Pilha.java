@@ -1,7 +1,7 @@
-package br.codes.clebermacieski.estruturasdedados.EstruturasDeDados.pilha;
+package br.codes.clebermacieski.estruturasdedados.estruturas_de_dados.pilha;
 
-import br.codes.clebermacieski.estruturasdedados.EstruturasDeDados.EstruturaDeDados;
-import br.codes.clebermacieski.estruturasdedados.EstruturasDeDados.Operacao;
+import br.codes.clebermacieski.estruturasdedados.estruturas_de_dados.EstruturaDeDados;
+import br.codes.clebermacieski.estruturasdedados.estruturas_de_dados.Operacao;
 
 public class Pilha extends EstruturaDeDados {
     private int tamanhoMaximo;
@@ -18,13 +18,13 @@ public class Pilha extends EstruturaDeDados {
 
     }
 
-    @Operacao(nome = "Inserir elemento")
+    @Operacao(posicao= 1 , nome = "Inserir elemento")
     public void push(int valor) throws ArrayIndexOutOfBoundsException{
         this.vetor[this.indiceAtual]= valor;
         this.indiceAtual++;
     }
 
-    @Operacao(nome = "Remover elemento")
+    @Operacao(posicao = 5, nome = "Remover elemento")
     public int pop() throws ArrayIndexOutOfBoundsException {
         int aux = this.vetor[this.indiceAtual -1];
         this.vetor[this.indiceAtual -1]= 0;
@@ -32,17 +32,17 @@ public class Pilha extends EstruturaDeDados {
         return aux;
     }
 
-    @Operacao(nome = "Mostrar tamanho maximo")
+    @Operacao(posicao = 4 , nome = "Mostrar tamanho maximo")
     public int getTamanhoMaximo() {
         return tamanhoMaximo;
     }
 
-    @Operacao(nome = "Mostrar tamanho atual")
+    @Operacao(posicao = 3 , nome = "Mostrar tamanho atual")
     public int getTamanhoAtual(){
         return this.indiceAtual;
     }
 
-    @Operacao(nome = "Mostrar elemento do topo")
+    @Operacao(posicao = 2 ,nome = "Mostrar elemento do topo")
     public int top(){
         return this.vetor[this.indiceAtual -1];
     }
@@ -51,7 +51,7 @@ public class Pilha extends EstruturaDeDados {
         return this.indiceAtual == 0;
     }
 
-    @Operacao(nome = "Limpar pilha")
+    @Operacao(posicao = 7, nome = "Limpar pilha")
     public void clear(){
         if(!this.isEmpty()){
             for (int i = 0; i < this.indiceAtual; i++) {

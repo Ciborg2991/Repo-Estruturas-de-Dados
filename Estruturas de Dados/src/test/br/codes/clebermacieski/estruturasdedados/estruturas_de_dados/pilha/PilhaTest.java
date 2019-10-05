@@ -1,4 +1,4 @@
-package br.codes.clebermacieski.estruturasdedados.EstruturasDeDados.pilha;
+package br.codes.clebermacieski.estruturasdedados.estruturas_de_dados.pilha;
 
 import org.junit.jupiter.api.Test;
 

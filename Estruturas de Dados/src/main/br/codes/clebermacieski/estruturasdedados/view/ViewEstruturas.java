@@ -1,6 +1,6 @@
 package br.codes.clebermacieski.estruturasdedados.view;
 
-import br.codes.clebermacieski.estruturasdedados.EstruturasDeDados.ColecaoEstruturaDeDados;
+import br.codes.clebermacieski.estruturasdedados.estruturas_de_dados.ColecaoEstruturaDeDados;
 import br.codes.clebermacieski.estruturasdedados.controller.ControllerEstruturasdeDados;
 
 /**

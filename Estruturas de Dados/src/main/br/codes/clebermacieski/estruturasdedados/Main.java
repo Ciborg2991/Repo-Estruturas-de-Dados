@@ -1,6 +1,6 @@
 package br.codes.clebermacieski.estruturasdedados;
 
-import br.codes.clebermacieski.estruturasdedados.EstruturasDeDados.ColecaoEstruturaDeDados;
+import br.codes.clebermacieski.estruturasdedados.estruturas_de_dados.ColecaoEstruturaDeDados;
 import br.codes.clebermacieski.estruturasdedados.controller.EstruturasdeDadosController;
 
 /**
@@ -14,5 +14,4 @@ public class Main {
         new EstruturasdeDadosController(new ColecaoEstruturaDeDados());
 		System.exit(0);
 	}
-
 }

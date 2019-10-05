@@ -1,4 +1,4 @@
-package br.codes.clebermacieski.estruturasdedados.EstruturasDeDados;
+package br.codes.clebermacieski.estruturasdedados.estruturas_de_dados;
 
 import br.codes.clebermacieski.estruturasdedados.util.Iterador;
 

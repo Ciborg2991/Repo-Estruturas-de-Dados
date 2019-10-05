@@ -6,8 +6,8 @@ br.codes.clebermacieski.estruturasdedados_old.listadupencadeada
 br.codes.clebermacieski.estruturasdedados_old.listasimplesncadeada
 br.codes.clebermacieski.estruturasdedados_old.pilha
 br.codes.clebermacieski.estruturasdedados.controller
-br.codes.clebermacieski.estruturasdedados.EstruturasDeDados
-br.codes.clebermacieski.estruturasdedados.EstruturasDeDados.pilha
+br.codes.clebermacieski.estruturasdedados.estruturas_de_dados
+br.codes.clebermacieski.estruturasdedados.estruturas_de_dados.pilha
 br.codes.clebermacieski.estruturasdedados.util
 br.codes.clebermacieski.estruturasdedados.view
 br.codes.clebermacieski.estruturasdedados.view.cli_estrutura
