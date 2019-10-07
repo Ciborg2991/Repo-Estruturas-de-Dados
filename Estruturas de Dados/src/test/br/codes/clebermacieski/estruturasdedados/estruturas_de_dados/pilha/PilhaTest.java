@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PilhaTest {
     @Test
-    void estaVazioTest(){
+    void isEmpty(){
         Pilha pilha = new Pilha();
         assertTrue(pilha.isEmpty());
     }
@@ -25,7 +25,7 @@ class PilhaTest {
     }
 
     @Test
-    void testaEmpurrar(){
+    void push(){
         var pilha = new Pilha(1);
         pilha.push(546125);
     }
@@ -60,7 +60,7 @@ class PilhaTest {
     }
 
     @Test
-    void testaGetTamanhoPadrao(){
+    void getTamanhoMaximo(){
         var pilha = new Pilha();
         assertEquals(0,pilha.getTamanhoMaximo());
     }
@@ -75,7 +75,7 @@ class PilhaTest {
     }
 
     @Test
-    void testaIndiceAtual(){
+    void getTamanhoAtual(){
         var pilha = new Pilha(10);
 
         pilha.push(159);
@@ -104,7 +104,7 @@ class PilhaTest {
     }
 
     @Test
-    void testaTop(){
+    void top(){
         var pilha = new Pilha(2);
         pilha.push(456);
         pilha.push(753);
@@ -117,7 +117,7 @@ class PilhaTest {
     }
 
     @Test
-    void testaClear(){
+    void clear(){
         var pilha = new Pilha(1);
         assertTrue(pilha.isEmpty());
         pilha.clear();
@@ -128,5 +128,12 @@ class PilhaTest {
 
         pilha.clear();
         assertTrue(pilha.isEmpty());
+    }
+
+    @Test
+    void pop() {
+        var pilha = new Pilha(1);
+        pilha.push(150);
+        assertEquals(150, pilha.pop());
     }
 }

@@ -63,4 +63,8 @@ public class CLIEstrutura{
     public void mostrar(int dado) {
         System.out.println(dado);
     }
+
+    public void operacaoNaoEncontrada() {
+        System.out.println("Operação não encontrada.");
+    }
 }

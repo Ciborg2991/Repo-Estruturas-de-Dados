@@ -27,8 +27,4 @@ public class CLIPilha extends CLIEstrutura {
         System.out.println("Elemento retirado da pilha: " + pop);
 
     }
-
-    public void operacaoNaoEncontrada() {
-        System.out.println("Operação não encontrada.");
-    }
 }

@@ -36,22 +36,27 @@ public class EstruturasdeDadosController implements ControllerEstruturasdeDados{
             }
 
             if (encontrou) {
-                var rodandoEstruturas = true;
-                do {
-                    if (estrutura.getClass() == Pilha.class) {
-                        Pilha pilha = (Pilha) estrutura;
-                        var cliPilha = new CLIPilha(estrutura);
-                        cliPilha.inicializar();
-                        pilha = new Pilha(cliPrincipal.pegarOpcaoEstrutura());
-//TODO: Testar inicialização e operações
+                var rodandoEstrutura = true;
+
+
+
+                if (estrutura.getClass() == Pilha.class) {
+
+                    var cliPilha = new CLIPilha(estrutura);
+                    cliPilha.inicializar();
+                    Pilha pilha = new Pilha(cliPrincipal.pegarOpcaoEstrutura());
+
+                    do {
+                        //TODO: Testar inicialização e operações
+                        atrasar(500);
                         cliPilha.mostrarOperacoes();
                         String opcao = cliPilha.pedirOpcao();
 
-                        if (opcao == null){
+                        if (opcao == null) {
                             cliPilha.operacaoNaoEncontrada();
-                        }
-                        else {
+                        } else {
                             switch (opcao) {
+                                //TODO: gerenciar exceções das operações
                                 case ("Inserir elemento"):
                                     pilha.push(cliPilha.pedirElemento());
                                     break;
@@ -71,16 +76,26 @@ public class EstruturasdeDadosController implements ControllerEstruturasdeDados{
                                     pilha.clear();
                                     break;
                                 case ("Sair"):
-                                    rodandoEstruturas = false;
+                                    rodandoEstrutura = false;
+                                default:
+                                    cliPilha.operacaoNaoEncontrada();
                             }
                         }
-                    }
-                } while (rodandoEstruturas);
-
+                    } while (rodandoEstrutura);
+                }
             } else throw new IOException("Não foi possível encontrar a estrutura solicitada.");
         }
         else{
             throw new RuntimeException("Encerando.");
         }
     }
+
+    private void atrasar(int atraso){
+        try {
+            Thread.sleep(atraso);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }
