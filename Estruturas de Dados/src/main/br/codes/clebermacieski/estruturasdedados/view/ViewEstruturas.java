@@ -3,6 +3,8 @@ package br.codes.clebermacieski.estruturasdedados.view;
 import br.codes.clebermacieski.estruturasdedados.estruturas_de_dados.ColecaoEstruturaDeDados;
 import br.codes.clebermacieski.estruturasdedados.controller.ControllerEstruturasdeDados;
 
+import java.io.IOException;
+
 /**
  * Classe abstrata e parte do design pattern composto MVC, implementando o desing pattern strategy.
  * @author Cléber Macieski
@@ -17,4 +19,6 @@ public abstract class ViewEstruturas {
     }
 
     public abstract void pedirOpcaodeEstrutura();
+
+    public abstract int pegarOpcaoEstrutura() throws IOException;
 }

@@ -7,6 +7,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class CLIEstrutura{
     private final EstruturaDeDados estrutura;
@@ -26,6 +29,7 @@ public class CLIEstrutura{
         System.out.println("Selecione operação de "+ estrutura.toString());
 
         String[] operacoes = estrutura.pegarOperacoes();
+
         int i = 1;
         for(String operacao:operacoes){
             System.out.println(i + " - " + operacao);
@@ -43,7 +47,7 @@ public class CLIEstrutura{
 
             for (int i = 1; i < operacoes.length; i++) {
                 if (i  == opcao) {
-                    return operacoes[i];
+                    return operacoes[i-1];
                 }
             }
         }

@@ -42,7 +42,8 @@ public class EstruturasdeDadosController implements ControllerEstruturasdeDados{
                         Pilha pilha = (Pilha) estrutura;
                         var cliPilha = new CLIPilha(estrutura);
                         cliPilha.inicializar();
-
+                        pilha = new Pilha(cliPrincipal.pegarOpcaoEstrutura());
+//TODO: Testar inicialização e operações
                         cliPilha.mostrarOperacoes();
                         String opcao = cliPilha.pedirOpcao();
 

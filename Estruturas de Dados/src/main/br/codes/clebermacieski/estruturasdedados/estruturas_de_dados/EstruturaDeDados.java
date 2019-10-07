@@ -1,24 +1,34 @@
 package br.codes.clebermacieski.estruturasdedados.estruturas_de_dados;
 
 import java.lang.reflect.Method;
-import java.util.ArrayList;
 
 public abstract class EstruturaDeDados {
 
     /**
      * Usa reflexão para acessar suas anotações a fim de retornar as operações disponíveis
      * na estrutura de maneira desacoplada
+     *
      * @return Uma lista de operações
      */
-    public String[] pegarOperacoes(){
+    public String[] pegarOperacoes() {
         Class classe = this.getClass();
-        String[] operacaoIndexada = new String[classe.getDeclaredMethods().length];
-        //TODO: Usar array multidimensional
-        for(Method metodo: classe.getDeclaredMethods()){
-            if (metodo.isAnnotationPresent(Operacao.class)){
-                operacaoIndexada[metodo.getAnnotation(Operacao.class).posicao()] = metodo.getAnnotation(Operacao.class).nome();
+        int numeroDeOperacoes = numeroDeOperacoes(classe);
+        String[] listaOperacoes = new String[numeroDeOperacoes];
+        for (Method metodo : classe.getDeclaredMethods()) {
+            if (metodo.isAnnotationPresent(Operacao.class)) {
+                listaOperacoes[metodo.getAnnotation(Operacao.class).posicao()] = metodo.getAnnotation(Operacao.class).nome();
+             }
+        }
+        return listaOperacoes;
+    }
+
+    private int numeroDeOperacoes(Class classe) {
+        var contador = 0;
+        for (Method metodo : classe.getDeclaredMethods()) {
+            if (metodo.isAnnotationPresent(Operacao.class)) {
+                contador++;
             }
         }
-        return operacaoIndexada;
+        return contador;
     }
 }

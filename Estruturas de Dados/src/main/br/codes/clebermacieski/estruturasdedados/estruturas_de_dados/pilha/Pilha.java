@@ -8,7 +8,7 @@ public class Pilha extends EstruturaDeDados {
     private int [] vetor;
     private int indiceAtual;
 
-    Pilha(int tamanho){
+    public Pilha(int tamanho){
         this.tamanhoMaximo = tamanho;
         this.vetor= new int[this.tamanhoMaximo];
         this.indiceAtual = 0;
@@ -18,13 +18,13 @@ public class Pilha extends EstruturaDeDados {
 
     }
 
-    @Operacao(posicao= 1 , nome = "Inserir elemento")
+    @Operacao(posicao= 0 , nome = "Inserir elemento")
     public void push(int valor) throws ArrayIndexOutOfBoundsException{
         this.vetor[this.indiceAtual]= valor;
         this.indiceAtual++;
     }
 
-    @Operacao(posicao = 5, nome = "Remover elemento")
+    @Operacao(posicao = 4, nome = "Remover elemento")
     public int pop() throws ArrayIndexOutOfBoundsException {
         int aux = this.vetor[this.indiceAtual -1];
         this.vetor[this.indiceAtual -1]= 0;
@@ -32,17 +32,17 @@ public class Pilha extends EstruturaDeDados {
         return aux;
     }
 
-    @Operacao(posicao = 4 , nome = "Mostrar tamanho maximo")
+    @Operacao(posicao = 3 , nome = "Mostrar tamanho maximo")
     public int getTamanhoMaximo() {
         return tamanhoMaximo;
     }
 
-    @Operacao(posicao = 3 , nome = "Mostrar tamanho atual")
+    @Operacao(posicao = 2 , nome = "Mostrar tamanho atual")
     public int getTamanhoAtual(){
         return this.indiceAtual;
     }
 
-    @Operacao(posicao = 2 ,nome = "Mostrar elemento do topo")
+    @Operacao(posicao = 1 ,nome = "Mostrar elemento do topo")
     public int top(){
         return this.vetor[this.indiceAtual -1];
     }
@@ -51,7 +51,7 @@ public class Pilha extends EstruturaDeDados {
         return this.indiceAtual == 0;
     }
 
-    @Operacao(posicao = 7, nome = "Limpar pilha")
+    @Operacao(posicao = 5, nome = "Limpar pilha")
     public void clear(){
         if(!this.isEmpty()){
             for (int i = 0; i < this.indiceAtual; i++) {

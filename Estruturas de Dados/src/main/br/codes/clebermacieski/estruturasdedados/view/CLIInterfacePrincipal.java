@@ -65,7 +65,8 @@ public class CLIInterfacePrincipal extends ViewEstruturas{
         if (!tinhaElementos) throw new IOException("Não há estruturas disponíveis.");
     }
 
-    private int pegarOpcaoEstrutura() throws IOException {
+    @Override
+    public int pegarOpcaoEstrutura() throws IOException {
         return Integer.parseInt(bufferedReader.readLine());
     }
 
