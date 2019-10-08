@@ -45,7 +45,7 @@ public class CLIEstrutura{
         if (opcao != 0){
             String[] operacoes = estrutura.pegarOperacoes();
 
-            for (int i = 1; i < operacoes.length; i++) {
+            for (int i = 1; i < operacoes.length+1; i++) {
                 if (i  == opcao) {
                     return operacoes[i-1];
                 }
@@ -62,6 +62,10 @@ public class CLIEstrutura{
 
     public void mostrar(int dado) {
         System.out.println(dado);
+    }
+
+    public void mostrar(String mensagem){
+        System.out.println(mensagem);
     }
 
     public void operacaoNaoEncontrada() {

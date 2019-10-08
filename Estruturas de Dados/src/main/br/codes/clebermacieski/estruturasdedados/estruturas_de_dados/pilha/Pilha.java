@@ -26,10 +26,14 @@ public class Pilha extends EstruturaDeDados {
 
     @Operacao(posicao = 4, nome = "Remover elemento")
     public int pop() throws ArrayIndexOutOfBoundsException {
-        int aux = this.vetor[this.indiceAtual -1];
-        this.vetor[this.indiceAtual -1]= 0;
-        this.indiceAtual--;
-        return aux;
+        try {
+            int aux = this.vetor[this.indiceAtual - 1];
+            this.vetor[this.indiceAtual - 1] = 0;
+            this.indiceAtual--;
+            return aux;
+        }catch (ArrayIndexOutOfBoundsException e){
+            throw new ArrayIndexOutOfBoundsException("Não existe elemento.");
+        }
     }
 
     @Operacao(posicao = 3 , nome = "Mostrar tamanho maximo")
@@ -44,7 +48,11 @@ public class Pilha extends EstruturaDeDados {
 
     @Operacao(posicao = 1 ,nome = "Mostrar elemento do topo")
     public int top(){
-        return this.vetor[this.indiceAtual -1];
+        try {
+            return this.vetor[this.indiceAtual - 1];
+        }catch(ArrayIndexOutOfBoundsException e){
+            throw new ArrayIndexOutOfBoundsException("Não existe elemento.");
+        }
     }
 
     boolean isEmpty(){
@@ -58,6 +66,8 @@ public class Pilha extends EstruturaDeDados {
                 this.vetor[i] = 0;
             }
             this.indiceAtual = 0;
+        } else{
+            throw new RuntimeException("Pilha vazia.");
         }
     }
 

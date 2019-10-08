@@ -120,7 +120,7 @@ class PilhaTest {
     void clear(){
         var pilha = new Pilha(1);
         assertTrue(pilha.isEmpty());
-        pilha.clear();
+        assertThrows(RuntimeException.class, pilha::clear);
         assertTrue(pilha.isEmpty());
 
         pilha.push(1579);

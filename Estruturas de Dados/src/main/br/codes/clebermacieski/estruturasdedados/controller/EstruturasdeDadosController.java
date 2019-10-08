@@ -47,38 +47,40 @@ public class EstruturasdeDadosController implements ControllerEstruturasdeDados{
                     Pilha pilha = new Pilha(cliPrincipal.pegarOpcaoEstrutura());
 
                     do {
-                        //TODO: Testar inicialização e operações
-                        atrasar(500);
+                        atrasar(800);
                         cliPilha.mostrarOperacoes();
                         String opcao = cliPilha.pedirOpcao();
 
                         if (opcao == null) {
                             cliPilha.operacaoNaoEncontrada();
                         } else {
-                            switch (opcao) {
-                                //TODO: gerenciar exceções das operações
-                                case ("Inserir elemento"):
-                                    pilha.push(cliPilha.pedirElemento());
-                                    break;
-                                case ("Remover elemento"):
-                                    cliPilha.mostarRetirado(pilha.pop());
-                                    break;
-                                case ("Mostrar tamanho maximo"):
-                                    cliPilha.mostrar(pilha.getTamanhoMaximo());
-                                    break;
-                                case ("Mostrar tamanho atual"):
-                                    cliPilha.mostrar(pilha.getTamanhoAtual());
-                                    break;
-                                case ("Mostrar elemento do topo"):
-                                    cliPilha.mostrarTopo(pilha.top());
-                                    break;
-                                case ("Limpar pilha"):
-                                    pilha.clear();
-                                    break;
-                                case ("Sair"):
-                                    rodandoEstrutura = false;
-                                default:
-                                    cliPilha.operacaoNaoEncontrada();
+                            try{
+                                switch (opcao) {
+                                    case ("Inserir elemento"):
+                                        pilha.push(cliPilha.pedirElemento());
+                                        break;
+                                    case ("Remover elemento"):
+                                        cliPilha.mostarRetirado(pilha.pop());
+                                        break;
+                                    case ("Mostrar tamanho maximo"):
+                                        cliPilha.mostrar(pilha.getTamanhoMaximo());
+                                        break;
+                                    case ("Mostrar tamanho atual"):
+                                        cliPilha.mostrar(pilha.getTamanhoAtual());
+                                        break;
+                                    case ("Mostrar elemento do topo"):
+                                        cliPilha.mostrarTopo(pilha.top());
+                                        break;
+                                    case ("Limpar pilha"):
+                                        pilha.clear();
+                                        break;
+                                    case ("Sair"):
+                                        rodandoEstrutura = false;
+                                    default:
+                                        cliPilha.operacaoNaoEncontrada();
+                                }
+                            } catch(RuntimeException e){
+                                cliPilha.mostrar(e.getMessage());
                             }
                         }
                     } while (rodandoEstrutura);
