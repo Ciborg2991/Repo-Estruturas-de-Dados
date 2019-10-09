@@ -26,12 +26,12 @@ DisplayLicense=
 FinishMessage=
 TargetName=D:\Usuarios\clebe\IdeaProjects\Repo-Estruturas-de-Dados\Estruturas de Dados\Estruturas de Dados JAVA.exe
 FriendlyName=Estruturas de Dados JAVA
-AppLaunched=cmd /c java -jar est.jar
+AppLaunched=cmd /c java -jar est.jar pause
 PostInstallCmd=<None>
 AdminQuietInstCmd=
 UserQuietInstCmd=
 FILE0="est.jar"
 [SourceFiles]
-SourceFiles0=C:\Users\clebe\Desktop\dist\
+SourceFiles0=C:\Users\clebe\Desktop\
 [SourceFiles0]
 %FILE0%=

@@ -56,12 +56,8 @@ public class CLIEstrutura{
         return null;
     }
 
-    void sucesso() {
-        System.out.println("Operação efetuada com sucesso!");
-    }
-
     public void mostrar(int dado) {
-        System.out.println(dado);
+        System.out.println(dado+"\n");
     }
 
     public void mostrar(String mensagem){

@@ -36,7 +36,7 @@
 	</target>
 	
  	<target name="compile" depends="init">
- 		<javac srcdir="${src.dir}" destdir="${build.dir}"/>
+ 		<javac includeantruntime="false" srcdir="${src.dir}" destdir="${build.dir}"/>
  	</target>
 	
     <target name="dist" depends="compile" description="Aplicação que utiliza implementaçoes de estruturas de dados diversas.">

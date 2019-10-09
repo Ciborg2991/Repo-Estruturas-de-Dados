@@ -4,12 +4,11 @@ import br.codes.clebermacieski.estruturasdedados.estruturas_de_dados.ColecaoEstr
 import br.codes.clebermacieski.estruturasdedados.controller.EstruturasdeDadosController;
 
 /**
- * Projeto que implementa estruturas de dados simples e utiliza padrões para permitir o acoplamento
- * de novas estruturas mais facilmente.
+ * Projeto que utiliza padrões para permitir o acoplamento de implementações de estruturas de dados.
  * @author Cléber Macieski
  */
 public class Main {
-
+//TODO: Readme e merge
 	public static void main(String[] args) {
         new EstruturasdeDadosController(new ColecaoEstruturaDeDados());
 		System.exit(0);
