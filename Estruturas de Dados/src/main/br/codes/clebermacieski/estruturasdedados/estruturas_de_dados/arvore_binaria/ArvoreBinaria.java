@@ -279,4 +279,5 @@ public class ArvoreBinaria extends EstruturaDeDados {
     private boolean ehFolha(Nodo percorrendo) {
         return percorrendo.getEsquerdo() == null && percorrendo.getDireito() == null;
     }
+
 }

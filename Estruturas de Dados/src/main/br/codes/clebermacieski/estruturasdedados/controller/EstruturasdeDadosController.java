@@ -59,10 +59,10 @@ public class EstruturasdeDadosController implements ControllerEstruturasdeDados{
         do {
             try {
                 ArvoreBinaria arvoreBinaria = new ArvoreBinaria(cliArvoreBinaria.pegar());
-//TODO: nome da classe
-//TODO:pensar padrãp para encapsularmudança da interface
                 atrasar(600);
                 cliArvoreBinaria.mostrarOperacoes();
+
+                //todo: anotar pilha
                 rodando = false;
 
             } catch (IOException e) {

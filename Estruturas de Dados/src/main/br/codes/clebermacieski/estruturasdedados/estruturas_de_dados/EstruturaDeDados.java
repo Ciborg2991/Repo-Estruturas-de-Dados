@@ -31,4 +31,9 @@ public abstract class EstruturaDeDados {
         }
         return contador;
     }
+
+    @Override
+    public String toString() {
+        return this.getClass().getSimpleName();
+    }
 }
