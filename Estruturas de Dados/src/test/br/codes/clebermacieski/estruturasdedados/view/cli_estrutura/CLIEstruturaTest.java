@@ -21,7 +21,7 @@ class CLIEstruturaTest {
         var cli = new CLIEstrutura(new Pilha(), new ByteArrayInputStream("1".getBytes()));
 
         try {
-            assertEquals("Limpar pilha",cli.pedirOpcao());
+            assertEquals("Limpar pilha",cli.pedirOperacao());
         } catch (IOException e) {
             e.printStackTrace();
         }

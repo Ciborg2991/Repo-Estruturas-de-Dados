@@ -1,6 +1,7 @@
 package br.codes.clebermacieski.estruturasdedados.estruturas_de_dados.arvore_binaria;
 
 import br.codes.clebermacieski.estruturasdedados.estruturas_de_dados.EstruturaDeDados;
+import br.codes.clebermacieski.estruturasdedados.estruturas_de_dados.Operacao;
 
 public class ArvoreBinaria extends EstruturaDeDados {
     private Nodo raiz;
@@ -17,6 +18,7 @@ public class ArvoreBinaria extends EstruturaDeDados {
         this.raiz = new Nodo(raiz);
     }
 
+    @Operacao(posicao= 4, nome = "Exibir em pré-ordem")
     public void exibirPreOrdem() {
         this.exibirPreOrdemRecursivamente(this.raiz);
     }
@@ -32,6 +34,7 @@ public class ArvoreBinaria extends EstruturaDeDados {
         }
     }
 
+    @Operacao(posicao= 3, nome= "Exibir em ordem")
     public void exibirEmOrdem() {
         this.exibirEmOrdemRecursivamente(this.raiz);
     }
@@ -46,6 +49,7 @@ public class ArvoreBinaria extends EstruturaDeDados {
         }
     }
 
+    @Operacao(posicao= 5, nome= "Exibir em pós-ordem")
     public void exibirPosOrdem() {
         this.exibirPosOrdemRecursivamente(this.raiz);
     }
@@ -60,6 +64,7 @@ public class ArvoreBinaria extends EstruturaDeDados {
         System.out.println("Nodo: " + percorrendo.getConteudo());
     }
 
+    @Operacao(posicao= 0, nome= "Inserir elemento")
     public void inserir(int elemento) {
 
         try{
@@ -96,6 +101,7 @@ public class ArvoreBinaria extends EstruturaDeDados {
         }
     }
 
+    @Operacao(posicao= 2, nome= "Balancear Árvore")
     public void balancear() {
         if (!this.ehBalanceada()){
             System.out.println(this.ehBalanceada());
@@ -148,14 +154,17 @@ public class ArvoreBinaria extends EstruturaDeDados {
         return contAltura;
     }
 
-    private boolean ehVazia() {
+    public boolean ehVazia() {
         return this.raiz == null;
     }
 
-    public void excluir(int elemento) {
+    @Operacao(posicao = 6, nome= "Excluir elemento")
+    public boolean excluir(int elemento) {
         if (this.excluirRecursivamente(elemento, this.raiz) == TiposExclusao.FOLHA) {
             this.raiz = null;
+            return true;
         }
+        return false;
     }
 
     private TiposExclusao excluirRecursivamente(int elemento, Nodo percorrendo) {
@@ -246,12 +255,14 @@ public class ArvoreBinaria extends EstruturaDeDados {
         return maisADireita;
     }
 
-    public void pesquisar(int elemento) {
+    @Operacao(posicao= 1, nome= "Pesquisar elemento")
+    public boolean pesquisar(int elemento) {
         try {
             this.pesquisarRecursivamente(elemento, this.raiz);
+            return true;
         }
         catch (NullPointerException e){
-            System.out.println(e.getMessage());
+            return false;
         }
     }
 

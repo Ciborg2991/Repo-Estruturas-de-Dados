@@ -39,7 +39,7 @@ public class CLIEstrutura{
         System.out.println("0 - Sair");
     }
 
-    public String pedirOpcao() throws IOException {
+    public String pedirOperacao() throws IOException {
         int opcao = Integer.parseInt(bufferedReader.readLine());
 
         if (opcao != 0){
@@ -70,5 +70,9 @@ public class CLIEstrutura{
 
     public int pegar() throws IOException {
         return Integer.parseInt(bufferedReader.readLine());
+    }
+
+    public void sucesso(){
+        System.out.println("Operação efetuada com sucesso.");
     }
 }

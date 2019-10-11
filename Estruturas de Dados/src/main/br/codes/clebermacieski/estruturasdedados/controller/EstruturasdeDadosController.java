@@ -52,19 +52,75 @@ public class EstruturasdeDadosController implements ControllerEstruturasdeDados{
     }
 
     private void rodarArvoreBinaria() {
+        ArvoreBinaria arvoreBinaria = new ArvoreBinaria();
         var cliArvoreBinaria = new CLIArvoreBinaria(estrutura);
         cliArvoreBinaria.pedirRaiz();
+
+        var inicializando = true;
+        do {
+            try {
+                arvoreBinaria = new ArvoreBinaria(cliArvoreBinaria.pegar());
+                inicializando = false;
+            } catch (IOException e) {
+                cliArvoreBinaria.mostrar("Erro no tipo de dado informado, tente novamente.");
+            }
+        }
+        while(inicializando);
 
         var rodando = true;
         do {
             try {
-                ArvoreBinaria arvoreBinaria = new ArvoreBinaria(cliArvoreBinaria.pegar());
                 atrasar(600);
                 cliArvoreBinaria.mostrarOperacoes();
 
-                //todo: anotar pilha
-                rodando = false;
-
+                //TODO: separar lógica de ui
+                switch (cliArvoreBinaria.pedirOperacao()){
+                    case "Inserir elemento":
+                        cliArvoreBinaria.pedirElemento();
+                        arvoreBinaria.inserir(cliArvoreBinaria.pegar());
+                        cliArvoreBinaria.sucesso();
+                        break;
+                    case "Pesquisar elemento":
+                        cliArvoreBinaria.pedirElementoPesquisa();
+                        if (arvoreBinaria.pesquisar(cliArvoreBinaria.pegar())){
+                            cliArvoreBinaria.mostrar("Elemento existe na árvore.");
+                        }
+                        else{
+                            cliArvoreBinaria.mostrar("Elemento não encontrado.");
+                        }
+                        break;
+                    case "Balancear Árvore":
+                        arvoreBinaria.balancear();
+                        cliArvoreBinaria.sucesso();
+                        break;
+                    case "Exibir em ordem":
+                        arvoreBinaria.exibirEmOrdem();
+                        break;
+                    case "Exibir em pré-ordem":
+                        arvoreBinaria.exibirPreOrdem();
+                        break;
+                    case "Exibir em pós-ordem":
+                        arvoreBinaria.exibirPosOrdem();
+                        break;
+                    case "Excluir elemento":
+                        cliArvoreBinaria.pedirElementoExcluir();
+                        if (arvoreBinaria.excluir(cliArvoreBinaria.pegar())) {
+                            cliArvoreBinaria.sucesso();
+                            if (arvoreBinaria.ehVazia()){
+                                cliArvoreBinaria.mostrar("Raiz excluída, voltando ao menu principal.");
+                                rodando = false;
+                            }
+                        }
+                        else{
+                            cliArvoreBinaria.mostrar("Não foi possivel excluir o elemento dado.");
+                        }
+                        break;
+                    case "Sair":
+                        rodando = false;
+                        break;
+                    default:
+                        cliArvoreBinaria.operacaoNaoEncontrada();
+                }
             } catch (IOException e) {
                 cliArvoreBinaria.mostrar("Erro no tipo de dado informado, tente novamente.");
             }
@@ -81,7 +137,7 @@ public class EstruturasdeDadosController implements ControllerEstruturasdeDados{
         do {
             atrasar(600);
             cliPilha.mostrarOperacoes();
-            String opcao = cliPilha.pedirOpcao();
+            String opcao = cliPilha.pedirOperacao();
 
             if (opcao == null) {
                 cliPilha.operacaoNaoEncontrada();

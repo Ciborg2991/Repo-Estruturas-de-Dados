@@ -11,4 +11,16 @@ public class CLIArvoreBinaria extends CLIEstrutura {
     public void pedirRaiz() {
         System.out.println("Inicializando árvore. Digite a raíz:");
     }
+
+    public void pedirElemento() {
+        System.out.println("Digite o elemento a ser inserido:");
+    }
+
+    public void pedirElementoPesquisa() {
+        System.out.println("Digite o elemento a ser pesquisado:");
+    }
+
+    public void pedirElementoExcluir() {
+        System.out.println("Digite o elemento a excluir:");
+    }
 }
