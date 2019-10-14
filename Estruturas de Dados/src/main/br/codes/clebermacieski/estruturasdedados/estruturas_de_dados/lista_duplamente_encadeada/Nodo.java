@@ -1,4 +1,4 @@
-package br.codes.clebermacieski.estruturasdedados_old.listadupencadeada;
+package br.codes.clebermacieski.estruturasdedados.estruturas_de_dados.lista_duplamente_encadeada;
 
 public class Nodo {
 
@@ -13,11 +13,11 @@ public class Nodo {
 		this.proximo = proximo;
 	}
 
-	public Nodo getAnterior() {
+	Nodo getAnterior() {
 		return anterior;
 	}
 
-	public void setAnterior(Nodo anterior) {
+	void setAnterior(Nodo anterior) {
 		this.anterior = anterior;
 	}
 
@@ -29,11 +29,11 @@ public class Nodo {
 		this.conteudo = conteudo;
 	}
 
-	public Nodo getProximo() {
+	Nodo getProximo() {
 		return proximo;
 	}
 
-	public void setProximo(Nodo proximo) {
+	void setProximo(Nodo proximo) {
 		this.proximo = proximo;
 	}
 	
