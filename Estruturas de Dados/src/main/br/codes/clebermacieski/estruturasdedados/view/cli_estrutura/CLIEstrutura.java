@@ -51,9 +51,12 @@ public class CLIEstrutura{
                 }
             }
         }
-        if (opcao == 0) return "Sair";
-
-        return null;
+        if (opcao == 0){
+            return "Sair";
+        }
+        else{
+            throw new RuntimeException("Opção indisponível. Tente novamente.");
+        }
     }
 
     public void mostrar(int dado) {

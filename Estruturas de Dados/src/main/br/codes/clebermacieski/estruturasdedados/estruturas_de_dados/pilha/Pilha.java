@@ -9,6 +9,7 @@ public class Pilha extends EstruturaDeDados {
     private int indiceAtual;
 
     public Pilha(int tamanho){
+        if (tamanho <= 0) throw new IllegalArgumentException("Tamanho não pode ser menor ou igual a zero.");
         this.tamanhoMaximo = tamanho;
         this.vetor= new int[this.tamanhoMaximo];
         this.indiceAtual = 0;

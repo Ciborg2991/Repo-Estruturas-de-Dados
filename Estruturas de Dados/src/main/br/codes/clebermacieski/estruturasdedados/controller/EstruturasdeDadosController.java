@@ -61,7 +61,7 @@ public class EstruturasdeDadosController implements ControllerEstruturasdeDados{
             try {
                 arvoreBinaria = new ArvoreBinaria(cliArvoreBinaria.pegar());
                 inicializando = false;
-            } catch (IOException e) {
+            } catch (IOException | NumberFormatException e) {
                 cliArvoreBinaria.mostrar("Erro no tipo de dado informado, tente novamente.");
             }
         }
@@ -121,7 +121,7 @@ public class EstruturasdeDadosController implements ControllerEstruturasdeDados{
                     default:
                         cliArvoreBinaria.operacaoNaoEncontrada();
                 }
-            } catch (IOException e) {
+            } catch (IOException | NumberFormatException e) {
                 cliArvoreBinaria.mostrar("Erro no tipo de dado informado, tente novamente.");
             }
         } while (rodando);
@@ -130,8 +130,17 @@ public class EstruturasdeDadosController implements ControllerEstruturasdeDados{
 
     private void rodarPilha() throws IOException {
         var cliPilha = new CLIPilha(estrutura);
-        cliPilha.inicializar();
-        Pilha pilha = new Pilha(cliPrincipal.pegarOpcaoEstrutura());
+
+        var inicializando = true;
+        Pilha pilha = null;
+        do {
+            cliPilha.inicializar();
+            try {
+                pilha = new Pilha(cliPrincipal.pegarOpcaoEstrutura());
+            } catch (IllegalArgumentException e) {
+                cliPilha.mostrar(e.getMessage());
+            }
+        }while(inicializando);
 
         var rodando = true;
         do {

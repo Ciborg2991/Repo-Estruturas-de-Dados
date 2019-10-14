@@ -8,6 +8,7 @@ import br.codes.clebermacieski.estruturasdedados.controller.EstruturasdeDadosCon
  * @author Cléber Macieski
  */
 public class Main {
+	//TODO: acoplar lse
 	public static void main(String[] args) {
         new EstruturasdeDadosController(new ColecaoEstruturaDeDados());
 		System.exit(0);
