@@ -71,8 +71,12 @@ public class CLIEstrutura{
         System.out.println("Operação não encontrada.");
     }
 
-    public int pegar() throws IOException {
+    public int pegarInt() throws IOException {
         return Integer.parseInt(bufferedReader.readLine());
+    }
+
+    public String pegarString() throws IOException {
+        return String.valueOf(bufferedReader.readLine());
     }
 
     public void sucesso(){

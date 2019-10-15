@@ -1,4 +1,4 @@
-package br.codes.clebermacieski.estruturasdedados_old.listasimplesncadeada;
+package br.codes.clebermacieski.estruturasdedados.estruturas_de_dados.lista_simples_encadeada;
 
 public class Nodo {
 	private String conteudo;
@@ -26,14 +26,14 @@ public class Nodo {
 	/**
 	 * @return the proximo
 	 */
-	public Nodo getProximo() {
+	Nodo getProximo() {
 		return proximo;
 	}
 
 	/**
 	 * @param proximo the proximo to set
 	 */
-	public void setProximo(Nodo proximo) {
+	void setProximo(Nodo proximo) {
 		this.proximo = proximo;
 	}
 

@@ -2,6 +2,7 @@ package br.codes.clebermacieski.estruturasdedados.estruturas_de_dados;
 
 import br.codes.clebermacieski.estruturasdedados.estruturas_de_dados.arvore_binaria.ArvoreBinaria;
 import br.codes.clebermacieski.estruturasdedados.estruturas_de_dados.lista_duplamente_encadeada.ListaDuplamenteEncadeada;
+import br.codes.clebermacieski.estruturasdedados.estruturas_de_dados.lista_simples_encadeada.ListaEncadeada;
 import br.codes.clebermacieski.estruturasdedados.estruturas_de_dados.pilha.Pilha;
 import br.codes.clebermacieski.estruturasdedados.util.Iterador;
 import br.codes.clebermacieski.estruturasdedados.util.Iteravel;
@@ -22,6 +23,7 @@ public class ColecaoEstruturaDeDados implements Iteravel {
         estruturas = new ArrayList<>();
         estruturas.add(new Pilha());
         estruturas.add(new ArvoreBinaria());
+        estruturas.add(new ListaEncadeada());
         estruturas.add(new ListaDuplamenteEncadeada());
     }
     @Override
