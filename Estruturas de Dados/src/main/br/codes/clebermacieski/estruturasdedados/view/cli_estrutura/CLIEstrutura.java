@@ -25,6 +25,10 @@ public class CLIEstrutura{
         bufferedReader = new BufferedReader(new InputStreamReader(entradaParaTeste));
     }
 
+    public void pedirElemento() {
+        System.out.println("Digite o elemento:");
+    }
+
     public void mostrarOperacoes() {
         System.out.println("Selecione operação de "+ estrutura.toString());
 

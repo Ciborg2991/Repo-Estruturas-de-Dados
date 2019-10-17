@@ -14,11 +14,6 @@ public class CLIPilha extends CLIEstrutura {
         System.out.println("Digite o tamanho desejado para a pilha:");
     }
 
-    public int pedirElemento() throws NumberFormatException, IOException {
-        System.out.println("Digite o elemento a ser inserido na pilha: ");
-        return Integer.parseInt(super.bufferedReader.readLine());
-    }
-
     public void mostrarTopo(int top) {
         System.out.println("Elemento do topo da pilha: " + top);
     }

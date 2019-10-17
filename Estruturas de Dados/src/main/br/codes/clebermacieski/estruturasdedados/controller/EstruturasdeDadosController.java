@@ -3,6 +3,7 @@ package br.codes.clebermacieski.estruturasdedados.controller;
 import br.codes.clebermacieski.estruturasdedados.estruturas_de_dados.ColecaoEstruturaDeDados;
 import br.codes.clebermacieski.estruturasdedados.estruturas_de_dados.EstruturaDeDados;
 import br.codes.clebermacieski.estruturasdedados.estruturas_de_dados.arvore_binaria.ArvoreBinaria;
+import br.codes.clebermacieski.estruturasdedados.estruturas_de_dados.lista_circular.ListaCircular;
 import br.codes.clebermacieski.estruturasdedados.estruturas_de_dados.lista_duplamente_encadeada.ListaDuplamenteEncadeada;
 import br.codes.clebermacieski.estruturasdedados.estruturas_de_dados.lista_simples_encadeada.ListaEncadeada;
 import br.codes.clebermacieski.estruturasdedados.util.Iterador;
@@ -54,11 +55,72 @@ public class EstruturasdeDadosController implements ControllerEstruturasdeDados{
                 if (estrutura.getClass() == ListaEncadeada.class){
                     rodarListaSimplesEncadeada();
                 }
+                if (estrutura.getClass() == ListaCircular.class){
+                    rodarListaCircular();
+                }
             } else throw new IOException("Não foi possível encontrar a estrutura solicitada.");
         }
         else{
             throw new RuntimeException("Encerando.");
         }
+    }
+
+    private void rodarListaCircular() {
+        ListaCircular listaCircular = new ListaCircular();
+        CLIListaCircular cliListaCircular = new CLIListaCircular(listaCircular);
+        var rodando = true;
+        do {
+            try {
+                atrasar(600);
+                cliListaCircular.mostrarOperacoes();
+                switch (cliListaCircular.pedirOperacao()) {
+                    case "Inserir no início":
+                        cliListaCircular.pedirElemento();
+                        listaCircular.inserirNoInicio(cliListaCircular.pegarString());
+                        break;
+                    case "Inserir no fim":
+                        cliListaCircular.pedirElemento();
+                        listaCircular.inserirNoFim(cliListaCircular.pegarString());
+                        break;
+                    case "Inserir após elemento":
+                        cliListaCircular.pedirElementoReferencia();
+                        var referencia = cliListaCircular.pegarString();
+                        cliListaCircular.pedirElemento();
+                        var elemento = cliListaCircular.pegarString();
+
+                        listaCircular.insereApos(referencia, elemento);
+                        break;
+                    case "Inserir em posição específica":
+                        cliListaCircular.pedirPosição();
+                        var posicao = cliListaCircular.pegarInt();
+
+                        cliListaCircular.pedirElemento();
+                        elemento = null;
+                        elemento = cliListaCircular.pegarString();
+
+                        listaCircular.inserirNaPos(posicao, elemento);
+                        break;
+                    case "Mostrar lista":
+                        listaCircular.mostrar();
+                        break;
+                    case "Remover início da lista":
+                        if (listaCircular.removerOInicio()) cliListaCircular.sucesso();
+                        break;
+                    case "Remover fim da lista":
+                        if (listaCircular.removerOFim()) cliListaCircular.sucesso();
+                        break;
+                    case "Sair":
+                        rodando = false;
+                        break;
+                    default:
+                        cliListaCircular.mostrar("Operação não encontrada.");
+                }
+            } catch (IOException | NumberFormatException e) {
+                cliListaCircular.mostrar("Erro no tipo de dados informado. Tente Novamente.");
+            } catch (RuntimeException e) {
+                cliListaCircular.mostrar(e.getMessage());
+            }
+        }while(rodando);
     }
 
     private void rodarListaSimplesEncadeada() {
@@ -120,8 +182,10 @@ public class EstruturasdeDadosController implements ControllerEstruturasdeDados{
                     default:
                         cliListaEnc.mostrar("Operação não encontrada.");
                 }
-            }catch (IOException | RuntimeException e  ){
+            }catch (IOException | NumberFormatException e  ){
                 cliListaEnc.mostrar("Erro no tipo de dados informado. Tente Novamente.");
+            }catch (RuntimeException e){
+                cliListaEnc.mostrar(e.getMessage());
             }
         }while(rodando);
     }
@@ -277,7 +341,8 @@ public class EstruturasdeDadosController implements ControllerEstruturasdeDados{
                 try{
                     switch (opcao) {
                         case ("Inserir elemento"):
-                            pilha.push(cliPilha.pedirElemento());
+                            cliPilha.pedirElemento();
+                            pilha.push(cliPilha.pegarInt());
                             break;
                         case ("Remover elemento"):
                             cliPilha.mostarRetirado(pilha.pop());
