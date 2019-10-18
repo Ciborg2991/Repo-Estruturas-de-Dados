@@ -4,7 +4,7 @@ import br.codes.clebermacieski.estruturasdedados.estruturas_de_dados.Operacao;
 
 public class ListaCircular extends br.codes.clebermacieski.estruturasdedados.estruturas_de_dados.EstruturaDeDados {
 
-    Nodo inicio;
+    private Nodo inicio;
 
     public ListaCircular(){
         this.inicio = null;
@@ -17,22 +17,21 @@ public class ListaCircular extends br.codes.clebermacieski.estruturasdedados.est
             this.inicio = new Nodo(conteudo, null);
             this.inicio.setProximo(this.inicio);
         }else{
-            Nodo novo = new Nodo(conteudo, this.inicio);
-            this.inicio=novo;
-            this.alteraUltimoProximo(this.inicio.getProximo());
+            this.inicio= new Nodo(conteudo, this.inicio);
+            var inicioAntigo = this.inicio.getProximo();
+            alteraUltimoProximo(inicioAntigo);
         }
     }
 
     private void alteraUltimoProximo(Nodo inicioAntigo) {
-        Nodo percorrer = this.inicio;
+        Nodo percorrer = inicioAntigo;
 
-        //TODO: revisar
-        while(percorrer != this.inicio){
+        do{
             if(percorrer.getProximo() == inicioAntigo){
                 percorrer.setProximo(this.inicio);
             }
             percorrer = percorrer.getProximo();
-        }
+        } while (percorrer != this.inicio);
 
     }
 
