@@ -2,7 +2,10 @@ Projeto onde busco implementar *desing patterns* para permitir o acoplamento de 
 
 Baixe o arquivo [Estruturas de Dados JAVA.exe](Estruturas%20de%20Dados/Estruturas%20de%20Dados%20JAVA.exe) para rodar o programa.
 
->Pré-requisito:
-OpenJDK Runtime Environment (build 12.0.2+10) Class file version up to 52.0.
+>Pré-requisitos:
 
-![pilha](images/pillha.png)
+>OpenJDK Runtime Environment (build 12.0.2+10) Class file version up to 52.0.
+
+>Microsoft Windows
+
+![estruturas](images/estruturas.png)
