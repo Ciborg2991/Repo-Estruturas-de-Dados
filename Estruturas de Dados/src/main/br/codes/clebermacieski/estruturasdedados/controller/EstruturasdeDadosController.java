@@ -3,6 +3,7 @@ package br.codes.clebermacieski.estruturasdedados.controller;
 import br.codes.clebermacieski.estruturasdedados.estruturas_de_dados.ColecaoEstruturaDeDados;
 import br.codes.clebermacieski.estruturasdedados.estruturas_de_dados.EstruturaDeDados;
 import br.codes.clebermacieski.estruturasdedados.estruturas_de_dados.arvore_binaria.ArvoreBinaria;
+import br.codes.clebermacieski.estruturasdedados.estruturas_de_dados.fila.Fila;
 import br.codes.clebermacieski.estruturasdedados.estruturas_de_dados.lista_circular.ListaCircular;
 import br.codes.clebermacieski.estruturasdedados.estruturas_de_dados.lista_duplamente_encadeada.ListaDuplamenteEncadeada;
 import br.codes.clebermacieski.estruturasdedados.estruturas_de_dados.lista_simples_encadeada.ListaEncadeada;
@@ -11,6 +12,7 @@ import br.codes.clebermacieski.estruturasdedados.estruturas_de_dados.pilha.Pilha
 import br.codes.clebermacieski.estruturasdedados.view.CLIInterfacePrincipal;
 import br.codes.clebermacieski.estruturasdedados.view.ViewEstruturas;
 import br.codes.clebermacieski.estruturasdedados.view.cli_estrutura.cli_arvore_binaria.CLIArvoreBinaria;
+import br.codes.clebermacieski.estruturasdedados.view.cli_estrutura.cli_fila.CLIFila;
 import br.codes.clebermacieski.estruturasdedados.view.cli_estrutura.cli_lista_duplamente_encadeada.CLIListaDuplamenteEncadeada;
 import br.codes.clebermacieski.estruturasdedados.view.cli_estrutura.cli_lista_encadeada.CLIListaEncadeada;
 import br.codes.clebermacieski.estruturasdedados.view.cli_estrutura.cli_pilha.CLIPilha;
@@ -58,11 +60,62 @@ public class EstruturasdeDadosController implements ControllerEstruturasdeDados{
                 if (estrutura.getClass() == ListaCircular.class){
                     rodarListaCircular();
                 }
+                if (estrutura.getClass() == Fila.class){
+                    rodarFila();
+                }
             } else throw new IOException("Não foi possível encontrar a estrutura solicitada.");
         }
         else{
             throw new RuntimeException("Encerando.");
         }
+    }
+
+    private void rodarFila() throws IOException {
+        CLIFila cliFila = new CLIFila(estrutura);
+
+        var inicializando = true;
+        Fila fila = null;
+        do {
+            cliFila.inicializar();
+            try {
+                fila = new Fila(cliPrincipal.pegarOpcaoEstrutura());
+                inicializando = false;
+            } catch (IllegalArgumentException e) {
+                cliFila.mostrar(e.getMessage());
+            }
+        }while(inicializando);
+
+        var rodando = true;
+        do{
+            try{
+                atrasar(800);
+                cliFila.mostrarOperacoes();
+                switch(cliFila.pegarOperacao()){
+                    case "Enfileirar elemento":
+                        cliFila.pedirElemento();
+                        fila.enfileirar(cliFila.pegarInt());
+                        break;
+                    case "Exibir fila":
+                        fila.exibirFila();
+                        break;
+                    case "Desenfileirar elemento":
+                        fila.desenfileirar();
+                        break;
+                    case "Limpar fila":
+                        fila.limpar();
+                        break;
+                    case "Sair":
+                        rodando = false;
+                        break;
+                    default:
+                        cliFila.mostrar("Operação não encontrada.");
+                }
+            }catch (IOException | NumberFormatException e) {
+                cliFila.mostrar("Erro no tipo de dados informado. Tente Novamente.");
+            } catch (RuntimeException e) {
+                cliFila.mostrar(e.getMessage());
+            }
+        } while (rodando);
     }
 
     private void rodarListaCircular() {
@@ -73,7 +126,7 @@ public class EstruturasdeDadosController implements ControllerEstruturasdeDados{
             try {
                 atrasar(600);
                 cliListaCircular.mostrarOperacoes();
-                switch (cliListaCircular.pedirOperacao()) {
+                switch (cliListaCircular.pegarOperacao()) {
                     case "Inserir no início":
                         cliListaCircular.pedirElemento();
                         listaCircular.inserirNoInicio(cliListaCircular.pegarString());
@@ -132,7 +185,7 @@ public class EstruturasdeDadosController implements ControllerEstruturasdeDados{
             try{
                 atrasar(600);
                 cliListaEnc.mostrarOperacoes();
-                switch(cliListaEnc.pedirOperacao()){
+                switch(cliListaEnc.pegarOperacao()){
                     case "Inserir elemento no ínicio":
                         cliListaEnc.pedirElemento();
                         listaEnc.inserirNoInicio(cliListaEnc.pegarString());
@@ -199,7 +252,7 @@ public class EstruturasdeDadosController implements ControllerEstruturasdeDados{
             atrasar(600);
             cliListaDE.mostrarOperacoes();
             try {
-                switch (cliListaDE.pedirOperacao()) {
+                switch (cliListaDE.pegarOperacao()) {
                     case "Adicionar elemento no ínicio":
                         cliListaDE.pedirElemento();
                         listDE.adicionarNoInicio(cliListaDE.pegarInt());
@@ -260,7 +313,7 @@ public class EstruturasdeDadosController implements ControllerEstruturasdeDados{
                 atrasar(600);
                 cliArvoreBinaria.mostrarOperacoes();
 
-                switch (cliArvoreBinaria.pedirOperacao()){
+                switch (cliArvoreBinaria.pegarOperacao()){
                     case "Inserir elemento":
                         cliArvoreBinaria.pedirElemento();
                         arvoreBinaria.inserir(cliArvoreBinaria.pegarInt());
@@ -333,7 +386,7 @@ public class EstruturasdeDadosController implements ControllerEstruturasdeDados{
         do {
             atrasar(600);
             cliPilha.mostrarOperacoes();
-            String opcao = cliPilha.pedirOperacao();
+            String opcao = cliPilha.pegarOperacao();
 
             if (opcao == null) {
                 cliPilha.operacaoNaoEncontrada();

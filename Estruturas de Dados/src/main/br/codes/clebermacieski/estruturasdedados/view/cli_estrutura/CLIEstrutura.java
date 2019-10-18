@@ -13,7 +13,7 @@ import java.util.Comparator;
 
 public class CLIEstrutura{
     private final EstruturaDeDados estrutura;
-    protected BufferedReader bufferedReader;
+    private BufferedReader bufferedReader;
 
     public CLIEstrutura(EstruturaDeDados estrutura) {
         this.estrutura = estrutura;
@@ -43,7 +43,7 @@ public class CLIEstrutura{
         System.out.println("0 - Sair");
     }
 
-    public String pedirOperacao() throws IOException {
+    public String pegarOperacao() throws IOException {
         int opcao = Integer.parseInt(bufferedReader.readLine());
 
         if (opcao != 0){
